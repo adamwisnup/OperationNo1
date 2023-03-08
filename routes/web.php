@@ -1,5 +1,14 @@
 <?php
 
+use App\Http\Controllers\Auth\AdminController;
+use App\Models\Admins;
+use App\Models\DataCaas;
+use App\Models\PassCheck;
+use App\Models\PassCheckMessage;
+use App\Models\Plots;
+use App\Models\Shifts;
+use App\Models\Stages;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,9 +22,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// welcome page
 Route::get('/', function () {
-    return view('welcome');
+    return view('main');
+})->name('main')->middleware('guest:datacaas', 'guest:admin');
+
+// failed page
+Route::fallback(function () {
+    return redirect('/');
 });
+
 
 Route::get('/home', [CaasController::class, 'home'])->name('home')->middleware('auth:datacaas');
 
