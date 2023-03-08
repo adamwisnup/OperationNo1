@@ -16,3 +16,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/home', [CaasController::class, 'home'])->name('home')->middleware('auth:datacaas');
+
+Route::get('/login', function () {
+    return view('login');
+})->name('login')->middleware('guest:admin','guest:datacaas');
+
+Route::post('/loginCaas', [CaasController::class, 'login'])->name('loginCaas');
+
+Route::get('/logoutCaas', [CaasController::class,'logout'])->name('logoutCaas');
