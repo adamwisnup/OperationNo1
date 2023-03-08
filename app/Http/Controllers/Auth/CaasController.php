@@ -56,6 +56,6 @@ class CaasController extends Controller
 		$countcaasnotlolos = $countcaas-$countcaaslolos;
 		return view('CaasAccount',compact('caas','stagesname','countcaas','countcaaslolos','countcaasnotlolos')); // disesuaikan sama nama bladenya
     }
-
+    // biar bisa di commit
     
 }
