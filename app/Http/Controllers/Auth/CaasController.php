@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Auth;
 
 class CaasController extends Controller
 {
-    protected $redirectTo = '/login';
+    protected $redirectTo = '/loginCaas';
 
     public function login(Request $request){
         $this->validate($request, [
@@ -19,29 +19,31 @@ class CaasController extends Controller
         ]);
 
         if(Auth::guard('datacaas')->attempt([
-            'nim' => $request->nim, 
+            'nim' => $request->nim,
             'password' => $request->password
             ], true)){
-                return redirect('home'); // disesuaikan sama nama bladenya
+                return redirect('dashboard'); // disesuaikan sama nama route
             }
             return redirect()->back()->with(['error' => 'NIM / Password Salah']); // disesuaikan sama nama routenye
     }
 
     public function logout(){
         Auth::guard('datacaas')->logout();
-        return redirect('login'); // disesuaikan sama nama routnya
+        return redirect('loginCaas'); // disesuaikan sama nama routnya
     }
 
     public function home(){
         $id = Auth::id();
-        $plotactive = DataCaas::where('datacaas.id',$id)
-					->leftjoin('plotactives','datacaas.id','=','plotactives.datacaas_id')
-					->first();
-		$caas = DataCaas::where('datacaas.id',$id)
-					->leftjoin('statuses','datacaas.id','=','statuses.datacaas_id')
-					->leftjoin('stages','stages.id','=','statuses.stages_id')
-					->first();
-		return view('home',compact('caas','plotactive')); // disesuaikan sama nama bladenya
+        // $plotactive = DataCaas::where('datacaas.id',$id)
+		// 			->leftjoin('plotactives','datacaas.id','=','plotactives.datacaas_id')
+		// 			->first();
+        $title = 'Dashboard';
+		// $caas = DataCaas::where('datacaas.id',$id)
+		// 			->leftjoin('statuses','datacaas.id','=','statuses.datacaas_id')
+		// 			->leftjoin('stages','stages.id','=','statuses.stages_id')
+		// 			->first();
+        $datacaas = DataCaas::where('id', $id)->first();
+        return view('dashboard', ['datacaas' => $datacaas, 'title' => $title]); // disesuaikan sama nama bladenya
     }
 
     public function caasAccount() {
@@ -57,5 +59,5 @@ class CaasController extends Controller
 		return view('CaasAccount',compact('caas','stagesname','countcaas','countcaaslolos','countcaasnotlolos')); // disesuaikan sama nama bladenya
     }
     // biar bisa di commit
-    
+
 }

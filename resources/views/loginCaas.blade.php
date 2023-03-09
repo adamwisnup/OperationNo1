@@ -14,7 +14,7 @@
 
       <div class="flex flex-col justify-center items-center h-screen">
 
-        <form class="flex flex-col justify-around items-center h-3/5" action="" method="post">
+        <form class="flex flex-col justify-around items-center h-3/5" action="/loginCaas" method="POST">
         @csrf
           <div>
             <h1 class="font-arcade text-white text-center text-3xl md:text-5xl">WELCOME EXPLORER</h1>
@@ -24,27 +24,36 @@
           <div class="flex flex-col items-center justify-between font-arcade text-white text-2xl h-60">
             <input
               type="text"
-              placeholder="NIM"
+              placeholder="nim"
               name="nim"
-              class="w-64 h-16 bg-dark-sky text-center shadow-in-semi-sm shadow-white rounded-lg duration-200 hover:shadow-in-semi-sm hover:shadow-dark-sun active:shadow-in-semi-sm active:shadow-bright-sun"
+              id="nim"
+              class="w-64 h-16 bg-dark-sky text-center shadow-in-semi-sm shadow-white rounded-lg duration-200 hover:shadow-in-semi-sm hover:shadow-dark-sun active:shadow-in-semi-sm active:shadow-bright-sun" required
             />
             <input
               type="password"
-              placeholder="PASSWORD"
+              placeholder="password"
               name="password"
-              class="w-64 h-16 bg-dark-sky text-center shadow-in-semi-sm shadow-white rounded-lg duration-200 hover:shadow-in-semi-sm hover:shadow-dark-sun active:shadow-in-semi-sm active:shadow-bright-sun"
+              id="password"
+              class="w-64 h-16 bg-dark-sky text-center shadow-in-semi-sm shadow-white rounded-lg duration-200 hover:shadow-in-semi-sm hover:shadow-dark-sun active:shadow-in-semi-sm active:shadow-bright-sun" required
             />
-            @if (session('error'))
+            @if ($errors->any())
+            <div class="fixed left-0 right-0 pt-14 flex justify-center">
+                @foreach ($errors as $error)
+                <div class="bg-red-500 failed fixed text-red-800 text-center font-pixel rounded-md px-2 py-1">{{ $error }}</div>
+                @endforeach
+            </div>
+            @endif
+            {{-- @if (session('error'))
             <div class="text-center pt-1">
                 <span class="text-center">{{ session('error') }}</span>
             </div>
             @endif
-            @error('NIM')
+            @error('nim')
             <div class="fixed left-0 right-0 pt-14 flex justify-center">
                 <div class="bg-red-500 failed fixed text-red-800 text-center font-pixel rounded-md px-2 py-1">NIM salah</div>
             </div>
             @enderror
-            @error('PASSWORD')
+            @error('password')
             <div class="fixed left-0 right-0 pt-14 flex justify-center">
                 <div class="bg-red-500 failed fixed text-red-800 text-center font-pixel rounded-md px-2 py-1">Password Salah</div>
             </div>
@@ -53,8 +62,8 @@
             <div class="text-center pt-1">
               <span class="text-center">{{ session('changed') }}</span>
             </div>
-            @endif
-            <button class="w-32 h-12 bg-dark-sky text-center shadow-in-semi-sm shadow-white rounded-lg duration-200 hover:shadow-semi-sm hover:shadow-dark-sun hover:bg-deep-sky active:shadow-in-semi-sm active:shadow-bright-sun">
+            @endif --}}
+            <button type="submit" class="w-32 h-12 bg-dark-sky text-center shadow-in-semi-sm shadow-white rounded-lg duration-200 hover:shadow-semi-sm hover:shadow-dark-sun hover:bg-deep-sky active:shadow-in-semi-sm active:shadow-bright-sun">
               <h1 class="triangle flex justify-center items-center h-[48px] hover:text-3xl active:text-2xl">▶</h1>
             </button>
           </div>

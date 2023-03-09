@@ -17,25 +17,28 @@
             <div class="flex justify-center pt-12 rounded-lg w-64 h-96 md:w-120 md:h-130 bg-dark-sky shadow-semi-lg shadow-yellow-300 text-white align-middle">
               <div>
                 <div class="flex justify-center">
-                  <img class="w-24 md:w-64 rounded-xl" src="{{ asset('/assets/dasboardcaas/REY.png') }}" />
+                  <img class="w-24 md:w-64 rounded-xl" src="{{ $datacaas->photo }}" />
                 </div>
+                {{-- @foreach ($datacaas as $caas) --}}
+
                 <div class="mx-2">
-                  <div class="mt-5">
+                    <div class="mt-5">
                     <h1 class="font-pixel">NAMA</h1>
                     <img src="{{ asset('/assets/dasboardcaas/Underline_Dashed.png') }}" alt="" />
-                    <p class="font-arcade text-sm md:text-xl">Reynaldhi Triyana Graha</p>
+                    <p class="font-arcade text-sm md:text-xl">{{ $datacaas->name }}</p>
                   </div>
                   <div class="mt-5">
                     <h1 class="font-pixel">NIM</h1>
                     <img src="{{ asset('/assets/dasboardcaas/Underline_Dashed.png') }}" alt="" />
-                    <p class="font-arcade md:text-xl">1101213117</p>
+                    <p class="font-arcade md:text-xl">{{ $datacaas->nim }}</p>
                   </div>
                   <div class="mt-5">
                     <h1 class="font-pixel">JURUSAN</h1>
                     <img src="{{ asset('/assets/dasboardcaas/Underline_Dashed.png') }}" alt="" />
-                    <p class="font-arcade md:text-xl">Teknik Telekomunikasi</p>
+                    <p class="font-arcade md:text-xl">{{ $datacaas->major }}</p>
                   </div>
                 </div>
+                {{-- @endforeach --}}
               </div>
             </div>
           </div>

@@ -6,6 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 
@@ -19,14 +20,15 @@ class DatacaasSeeder extends Seeder
      */
     public function run()
     {
+        $photo = Storage::disk('public')->get('mai.png');
         DB::table('datacaas')->insert([
             'name' => 'Adam Wisnu Pradana',
             'email' => Str::random(10) . '@gmail.com',
             'nim' => '1101213133',
             'major' => 'Teknik Telekomunikasi',
             'class' => 'TT-46-09',
-            'photo' =>  Str::random(15),
-            'password' => Hash::make('password'),
+            'photo' =>  $photo,
+            'password' => Hash::make('123456789'),
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'),
         ]);
@@ -37,7 +39,7 @@ class DatacaasSeeder extends Seeder
             'major' => 'Teknik Telekomunikasi',
             'class' => 'TT-46-10',
             'photo' =>  Str::random(15),
-            'password' => Hash::make('password'),
+            'password' => Hash::make('123456789'),
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'),
         ]);
@@ -48,7 +50,7 @@ class DatacaasSeeder extends Seeder
             'major' => 'Teknik Biomedis',
             'class' => 'TB-46-02',
             'photo' =>  Str::random(15),
-            'password' => Hash::make('password'),
+            'password' => Hash::make('123456789'),
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'),
         ]);
@@ -59,7 +61,7 @@ class DatacaasSeeder extends Seeder
             'major' => 'Teknik Biomedis',
             'class' => 'TB-46-01',
             'photo' =>  Str::random(15),
-            'password' => Hash::make('password'),
+            'password' => Hash::make('123456789'),
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'),
         ]);
@@ -70,7 +72,7 @@ class DatacaasSeeder extends Seeder
             'major' => 'Teknik Fisika',
             'class' => 'TF-46-02',
             'photo' =>  Str::random(15),
-            'password' => Hash::make('password'),
+            'password' => Hash::make('123456789'),
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'),
         ]);
@@ -81,7 +83,7 @@ class DatacaasSeeder extends Seeder
             'major' => 'Teknik Fisika',
             'class' => 'TF-46-04',
             'photo' =>  Str::random(15),
-            'password' => Hash::make('password'),
+            'password' => Hash::make('123456789'),
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'),
         ]);

@@ -68,7 +68,7 @@
         </li>
 
         <li class="relative mt-2 p-1 list-none">
-          <a href="#" class="shadow-semi-xl shadow-white hover:shadow-red-600 hover:bg-red-200 hover:text-red-600 flex h-full w-full rounded-xl items-center no-underline bg-dream-dark">
+          <a href="/logoutCaas" class="shadow-semi-xl shadow-white hover:shadow-red-600 hover:bg-red-200 hover:text-red-600 flex h-full w-full rounded-xl items-center no-underline bg-dream-dark">
             <span class="text-xs md:text-lg flex p-1 pl-14 md:pl-20 font-arcade text-center whitespace-nowrap">Logout</span>
             <img src="{{ asset('/assets/sidebar/logout1.png') }}" alt="Logout" />
           </a>
