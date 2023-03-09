@@ -17,7 +17,7 @@
             <div class="flex justify-center pt-12 rounded-lg w-64 h-96 md:w-120 md:h-130 bg-dark-sky shadow-semi-lg shadow-yellow-300 text-white align-middle">
               <div>
                 <div class="flex justify-center">
-                  <img class="w-24 md:w-64 rounded-xl" src="{{ $datacaas->photo }}" />
+                  <img class="w-24 md:w-64 rounded-xl" src="{{ asset('assets/dasboardcaas/REY.png') }}" />
                 </div>
                 {{-- @foreach ($datacaas as $caas) --}}
 

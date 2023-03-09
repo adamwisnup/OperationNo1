@@ -102,5 +102,6 @@
       </div>
     </div>
     <script src="{{ asset('/js/welcome.js') }}"></script>
+    {{-- test --}}
   </body>
 </html>

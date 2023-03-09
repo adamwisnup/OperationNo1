@@ -21,7 +21,7 @@
         </li>
 
         <li class="relative mt-2 p-1 list-none">
-          <a href="/gantipassword" class="shadow-semi-xl {{ ($title === "Change Password") ? 'shadow-yellow-300' : 'shadow-white' }} hover:text-black hover:bg-white flex w-full h-10 md:h-12 rounded-xl items-center no-underline bg-dream-dark">
+          <a href="/changepass" class="shadow-semi-xl {{ ($title === "Change Password") ? 'shadow-yellow-300' : 'shadow-white' }} hover:text-black hover:bg-white flex w-full h-10 md:h-12 rounded-xl items-center no-underline bg-dream-dark">
             <img class="pl-2 h-10 md:h-10" src="{{ asset('/assets/sidebar/Asteroid2.png') }}" alt="Asteroid" />
             <span class="text-xs md:text-lg font-arcade whitespace-nowrap">Change Password</span>
           </a>

@@ -43,26 +43,6 @@
                 @endforeach
             </div>
             @endif
-            {{-- @if (session('error'))
-            <div class="text-center pt-1">
-                <span class="text-center">{{ session('error') }}</span>
-            </div>
-            @endif
-            @error('nim')
-            <div class="fixed left-0 right-0 pt-14 flex justify-center">
-                <div class="bg-red-500 failed fixed text-red-800 text-center font-pixel rounded-md px-2 py-1">NIM salah</div>
-            </div>
-            @enderror
-            @error('password')
-            <div class="fixed left-0 right-0 pt-14 flex justify-center">
-                <div class="bg-red-500 failed fixed text-red-800 text-center font-pixel rounded-md px-2 py-1">Password Salah</div>
-            </div>
-            @enderror
-            @if (session('changed'))
-            <div class="text-center pt-1">
-              <span class="text-center">{{ session('changed') }}</span>
-            </div>
-            @endif --}}
             <button type="submit" class="w-32 h-12 bg-dark-sky text-center shadow-in-semi-sm shadow-white rounded-lg duration-200 hover:shadow-semi-sm hover:shadow-dark-sun hover:bg-deep-sky active:shadow-in-semi-sm active:shadow-bright-sun">
               <h1 class="triangle flex justify-center items-center h-[48px] hover:text-3xl active:text-2xl">▶</h1>
             </button>

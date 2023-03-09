@@ -20,14 +20,18 @@ class DatacaasSeeder extends Seeder
      */
     public function run()
     {
-        $photo = Storage::disk('public')->get('mai.png');
+        // // Mendapatkan path dari foto
+        // $path = storage_path('app/public/mai.png');
+
+        // // Membaca foto sebagai string biner
+        // $blob = file_get_contents($path);
         DB::table('datacaas')->insert([
             'name' => 'Adam Wisnu Pradana',
             'email' => Str::random(10) . '@gmail.com',
             'nim' => '1101213133',
             'major' => 'Teknik Telekomunikasi',
             'class' => 'TT-46-09',
-            'photo' =>  $photo,
+            'photo' =>  Str::random(15),
             'password' => Hash::make('123456789'),
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'),

@@ -58,6 +58,21 @@ class CaasController extends Controller
 		$countcaasnotlolos = $countcaas-$countcaaslolos;
 		return view('CaasAccount',compact('caas','stagesname','countcaas','countcaaslolos','countcaasnotlolos')); // disesuaikan sama nama bladenya
     }
+    public function changepass(Request $request)
+    {
+        $this->validate($request, [
+            'password'  => 'required|min:8|string|regex:/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/',
+        ]);
+        $datacaas = Admins::find(Auth::id());
+        $title = 'Change Password';
+        $datacaas->update([
+            'name' => $datacaas->name,
+            'ascod' => $datacaas->ascod,
+            'password' => Hash::make($request->password),
+        ]);
+        Auth::guard('datacaas')->logout();
+        return redirect('loginCaas', ['title' => $title]);
+    }
     // biar bisa di commit
 
 }

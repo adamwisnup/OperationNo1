@@ -16,7 +16,7 @@
               <div>
                 <div>
                   <div class="mt-5">
-                    <h1 class="font-arcade text-2xl text-center pb-10">SELAMAT KAMU LULUS TAHAP WAWANCARA</h1>
+                    <h1 class="font-arcade text-2xl text-center pb-10">SELAMAT KAMU LULUS TAHAP UPGRADING</h1>
 
                     <p class="font-pixel text-lg text-center mx-8">
                       Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut error dolorum, tempora, quis repellendus aliquid veritatis illum debitis libero hic praesentium architecto assumenda reprehenderit quam molestias doloremque cum

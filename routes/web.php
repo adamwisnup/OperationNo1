@@ -40,6 +40,8 @@ Route::get('/loginCaas', function () {
 
 Route::get('/dashboard', [CaasController::class, 'home'])->name('dashboard')->middleware('auth:datacaas');
 
+Route::post('/changepass', [CaasController::class, 'changepass'])->name('changepass')->middleware('auth:datacaas');
+
 Route::post('/loginCaas', [CaasController::class, 'login'])->name('loginCaas');
 
 Route::get('/logoutCaas', [CaasController::class,'logout'])->name('logoutCaas');
@@ -137,4 +139,5 @@ Route::post('deleteAllShift', function () {
     $plot = Plots::whereNotNull('id')->delete();
     return redirect('/ListShift');
 })->name('deleteAllShift')->middleware('auth:admin');
+
 
