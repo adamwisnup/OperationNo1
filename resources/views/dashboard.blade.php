@@ -14,12 +14,12 @@
         @include('partials.sidebarCaas')
 
         <div class="flex justify-center pt-16">
-            <div class="flex justify-center pt-12 rounded-lg w-64 h-96 md:w-120 md:h-130 bg-dark-sky shadow-semi-lg shadow-yellow-300 text-white align-middle">
+            <div class="flex justify-center pt-12 rounded-lg w-64 h-96 md:w-115 md:h-120 bg-dark-sky shadow-semi-lg shadow-yellow-300 text-white align-middle">
               <div>
-                <div class="flex justify-center">
-                  <img class="w-24 md:w-64 rounded-xl" src="{{ asset('assets/dasboardcaas/REY.png') }}" />
+                <div class="flex justify-center ">
+                  <?php echo '<img class="w-24 md:w-48 rounded-xl" src="data:image/jpeg;base64,'.base64_encode($photo) .'" />'; ?>
                 </div>
-                {{-- @foreach ($datacaas as $caas) --}}
+
 
                 <div class="mx-2">
                     <div class="mt-5">
@@ -38,14 +38,14 @@
                     <p class="font-arcade md:text-xl">{{ $datacaas->major }}</p>
                   </div>
                 </div>
-                {{-- @endforeach --}}
+
+
               </div>
             </div>
           </div>
 
         @include('partials.footer')
     </div>
-    <script src="{{ asset('/js/sidebar.js') }}"></script>
   </body>
 </html>
 

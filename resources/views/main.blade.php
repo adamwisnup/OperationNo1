@@ -39,7 +39,7 @@
         <div>
           <img src="{{ asset('assets/homepage/Spaceship_Pixel.png') }}" class="relative w-16 rotate-[65deg] left-72 hidden md:block" />
         </div>
-        <div class="font-pixel mt-11 mr-11 hidden md:block">
+        <div class="font-pixel mt-8 mr-11 hidden md:block">
           <p>Final strech to</p>
           <p>our new home</p>
           <p>Letsgoooo!!</p>
