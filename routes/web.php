@@ -107,8 +107,9 @@ Route::get('/ListShift', function () {
     $countshift = Shifts::count();
     $stagesname = Stages::pluck('stagesname');
     $passcheck = PassCheck::find(1);
+    $totalquota = Shifts::sum('quota');
     \Carbon\Carbon::setLocale('id');
-    return view('shiftAdmin', ['shift' => $shift, 'countshift' => $countshift, 'stagesname' => $stagesname, 'passcheck' => $passcheck]);
+    return view('shiftAdmin', ['shift' => $shift, 'countshift' => $countshift, 'stagesname' => $stagesname, 'passcheck' => $passcheck, 'totalquota' => $totalquota]);
 })->name('ListShift')->middleware('auth:admin');
 Route::post('/addShift', function (Request $request) {
     Shifts::create([

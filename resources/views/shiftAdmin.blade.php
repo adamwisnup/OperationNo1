@@ -17,8 +17,8 @@
         <div class="flex justify-between w-[53%]">
             <!-- Stats -->
             <div class="flex flex-col font-arcade text-xl w-2/5 text-white">
-                <div class="flex text-white"><h1>TOTAL SHIFT : &nbsp</h1><h1 id="totalShift">7</h1></div>
-                <div class="flex text-white"><h1>TOTAL KUOTA : &nbsp</h1><h1 id="totalKuota">50</h1></div>
+                <div class="flex text-white"><h1>TOTAL SHIFT : &nbsp</h1><h1 id="totalShift">{{$countshift}}</h1></div>
+                <div class="flex text-white"><h1>TOTAL KUOTA : &nbsp</h1><h1 id="totalKuota">{{$totalquota}}</h1></div>
             </div>
             <!-- buttons -->
             <div class="flex justify-between font-arcade text-lg w-[24rem]">
