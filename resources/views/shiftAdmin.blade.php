@@ -39,76 +39,19 @@
               <th class="border border-[#E1F2FF]">KUOTA</th>
               <th class="border border-[#E1F2FF]">OPSI</th>
             </tr>
+            <?php $no = 1;?>
+            @foreach($shift as $s)
             <tr class="text-[#00111E] text-center">
-              <td class="border border-[#00111E] px-2">01</td>
-              <td class="border border-[#00111E] px-10">Shift 1</td>
-              <td class="border border-[#00111E] px-10">1 Maret 2023</td>
-              <td class="border border-[#00111E] px-10">06:30-07:30</td>
-              <td class="text-[#426006] border border-[#00111E] px-10">1</td>
+              <td class="border border-[#00111E] px-2">{{$no++}}</td>
+              <td class="border border-[#00111E] px-10">{{$s->shiftname}}</td>
+              <td class="border border-[#00111E] px-10">{{$s->day}}</td>
+              <td class="border border-[#00111E] px-10">{{$s->time_start}}-{{$s->time_end}}</td>
+              <td class="text-[#426006] border border-[#00111E] px-10">{{$s->quota}}</td>
               <td class="border border-[#00111E] px-10">
                 <button class="duration-200 hover:underline active:text-[#00111e6b]"><h1>Edit</h1></button>
               </td>
             </tr>
-            <tr class="text-[#00111E] text-center">
-                <td class="border border-[#00111E]">02</td>
-                <td class="border border-[#00111E]">Shift 1</td>
-                <td class="border border-[#00111E]">1 Maret 2023</td>
-                <td class="border border-[#00111E]">06:30-07:30</td>
-                <td class="text-[#BF262F] border border-[#00111E]">2</td>
-                <td class="border border-[#00111E]">
-                  <button class="duration-200 hover:underline active:text-[#00111e6b]"><h1>Edit</h1></button>
-                </td>
-            </tr>
-            <tr class="text-[#00111E] text-center">
-                <td class="border border-[#00111E] px-2">01</td>
-                <td class="border border-[#00111E] px-10">Shift 1</td>
-                <td class="border border-[#00111E] px-10">1 Maret 2023</td>
-                <td class="border border-[#00111E] px-10">06:30-07:30</td>
-                <td class="text-[#426006] border border-[#00111E] px-10">1</td>
-                <td class="border border-[#00111E] px-10">
-                  <button class="duration-200 hover:underline active:text-[#00111e6b]"><h1>Edit</h1></button>
-                </td>
-            </tr>
-            <tr class="text-[#00111E] text-center">
-                <td class="border border-[#00111E] px-2">01</td>
-                <td class="border border-[#00111E] px-10">Shift 1</td>
-                <td class="border border-[#00111E] px-10">1 Maret 2023</td>
-                <td class="border border-[#00111E] px-10">06:30-07:30</td>
-                <td class="text-[#426006] border border-[#00111E] px-10">1</td>
-                <td class="border border-[#00111E] px-10">
-                  <button class="duration-200 hover:underline active:text-[#00111e6b]"><h1>Edit</h1></button>
-                </td>
-            </tr>
-            <tr class="text-[#00111E] text-center">
-                <td class="border border-[#00111E] px-2">01</td>
-                <td class="border border-[#00111E] px-10">Shift 1</td>
-                <td class="border border-[#00111E] px-10">1 Maret 2023</td>
-                <td class="border border-[#00111E] px-10">06:30-07:30</td>
-                <td class="text-[#426006] border border-[#00111E] px-10">1</td>
-                <td class="border border-[#00111E] px-10">
-                  <button class="duration-200 hover:underline active:text-[#00111e6b]"><h1>Edit</h1></button>
-                </td>
-            </tr>
-            <tr class="text-[#00111E] text-center">
-                <td class="border border-[#00111E] px-2">01</td>
-                <td class="border border-[#00111E] px-10">Shift 1</td>
-                <td class="border border-[#00111E] px-10">1 Maret 2023</td>
-                <td class="border border-[#00111E] px-10">06:30-07:30</td>
-                <td class="text-[#426006] border border-[#00111E] px-10">1</td>
-                <td class="border border-[#00111E] px-10">
-                  <button class="duration-200 hover:underline active:text-[#00111e6b]"><h1>Edit</h1></button>
-                </td>
-            </tr>
-            <tr class="text-[#00111E] text-center">
-                <td class="border border-[#00111E] px-2">01</td>
-                <td class="border border-[#00111E] px-10">Shift 1</td>
-                <td class="border border-[#00111E] px-10">1 Maret 2023</td>
-                <td class="border border-[#00111E] px-10">06:30-07:30</td>
-                <td class="text-[#426006] border border-[#00111E] px-10">1</td>
-                <td class="border border-[#00111E] px-10">
-                    <button class="duration-200 hover:underline active:text-[#00111e6b]"><h1>Edit</h1></button>
-                </td>
-            </tr>
+            @endforeach
         </table>
         @include('partials.footer')
     </div>
