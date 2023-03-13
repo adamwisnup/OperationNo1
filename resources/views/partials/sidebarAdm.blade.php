@@ -21,7 +21,7 @@
         </li>
 
         <li class="relative mt-2 p-1 list-none">
-          <a href="/xcaasAccount" class="shadow-semi-xl shadow-white hover:text-black hover:bg-white flex w-full  h-8 md:h-10 rounded-xl items-center no-underline bg-dream-dark">
+          <a href="/caasAccount" class="shadow-semi-xl shadow-white hover:text-black hover:bg-white flex w-full  h-8 md:h-10 rounded-xl items-center no-underline bg-dream-dark">
             <img class="pl-2 h-8" src="{{ asset('/assets/sidebar/Asteroid2.png') }}" alt="Asteroid" />
             <span class="text-xs md:text-base font-arcade whitespace-nowrap">Data Caas</span>
           </a>
