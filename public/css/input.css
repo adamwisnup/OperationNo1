@@ -51,7 +51,7 @@ body {
 /* Sidebar */
 
 .sidebar.open {
-  width: 250px;
+  width: 210px;
 }
 
 @media (max-width: 768px) {

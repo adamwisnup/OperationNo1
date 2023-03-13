@@ -2,7 +2,7 @@ async function typeEffect() {
   let div = document.querySelector(".w-screen");
   div.style.width = window.innerWidth + "px";
 
-  const name = "welcome adventure";
+  const name = "welcome adventurer";
   const words = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w"];
   let newName = "";
   let ind = 0;

@@ -7,6 +7,7 @@ use App\Models\DataCaas;
 use App\Models\Stages;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class CaasController extends Controller
 {
@@ -43,7 +44,11 @@ class CaasController extends Controller
 		// 			->leftjoin('stages','stages.id','=','statuses.stages_id')
 		// 			->first();
         $datacaas = DataCaas::where('id', $id)->first();
-        return view('dashboard', ['datacaas' => $datacaas, 'title' => $title]); // disesuaikan sama nama bladenya
+        $photo = $datacaas->photo;
+        // dd($photo);
+        // die;
+        
+        return view('dashboard', ['datacaas' => $datacaas, 'title' => $title, 'photo'=>$photo]); // disesuaikan sama nama bladenya
     }
 
     public function caasAccount() {
@@ -60,19 +65,21 @@ class CaasController extends Controller
     }
     public function changepass(Request $request)
     {
-        $this->validate($request, [
-            'password'  => 'required|min:8|string|regex:/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/',
-        ]);
-        $datacaas = Admins::find(Auth::id());
-        $title = 'Change Password';
-        $datacaas->update([
-            'name' => $datacaas->name,
-            'ascod' => $datacaas->ascod,
-            'password' => Hash::make($request->password),
-        ]);
-        Auth::guard('datacaas')->logout();
-        return redirect('loginCaas', ['title' => $title]);
+    $this->validate($request, [
+        'password'  => 'required|min:8|string',
+            'confirmpassword'  => 'required|same:password',
+    ]);
+
+    $datacaas = DataCaas::where('id', Auth::id())->first();
+    $datacaas->update([
+        'password' => Hash::make($request->password),
+    ]);
+    Auth::guard('datacaas')->logout();
+    $title = 'Change Password';
+    // return redirect('loginCaas', ['title'=>$title]);
+    return redirect()->route('loginCaas')->with('title', $title);
     }
     // biar bisa di commit
+
 
 }

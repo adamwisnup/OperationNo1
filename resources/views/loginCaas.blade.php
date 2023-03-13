@@ -37,9 +37,9 @@
               class="w-64 h-16 bg-dark-sky text-center shadow-in-semi-sm shadow-white rounded-lg duration-200 hover:shadow-in-semi-sm hover:shadow-dark-sun active:shadow-in-semi-sm active:shadow-bright-sun" required
             />
             @if ($errors->any())
-            <div class="fixed left-0 right-0 pt-14 flex justify-center">
-                @foreach ($errors as $error)
-                <div class="bg-red-500 failed fixed text-red-800 text-center font-pixel rounded-md px-2 py-1">{{ $error }}</div>
+            <div class="fixed left-0 right-0 -top-24 flex justify-center">
+                @foreach ($errors->all() as $error)
+                <div class="bg-red-500 fixed text-red-800 text-center font-pixel rounded-md px-2 py-1">{{ $error }}</div>
                 @endforeach
             </div>
             @endif

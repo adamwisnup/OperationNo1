@@ -18,6 +18,7 @@ module.exports = {
         pixel: ['"VP Pixel"'],
       },
       width: {
+        110: "19rem",
         115: "23rem",
         120: "28rem",
         130: "36rem",
@@ -26,6 +27,8 @@ module.exports = {
       height: {
         130: "36rem",
         124: "33rem",
+        120: "30rem",
+        118: "28rem",
       },
       colors: {
         "dark-sky": "#00172B",

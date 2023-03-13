@@ -22,7 +22,8 @@ class DatabaseSeeder extends Seeder
             PassCheckSeeder::class,
             AdminSeeder::class,
             StagesSeeder::class,
-            DatacaasSeeder::class
+            DatacaasSeeder::class,
+            AssistantContactSeeder::class,
         ]);
     }
 }
