@@ -14,28 +14,33 @@
         @include('partials.sidebarCaas')
 
         <div class="flex justify-center pt-16">
-            <div class="flex justify-center pt-12 rounded-lg w-64 h-96 md:w-115 md:h-120 bg-dark-sky shadow-semi-lg shadow-yellow-300 text-white align-middle">
+            <div class="flex justify-center pt-12 rounded-lg w-64 h-118 md:w-115 md:h-124 bg-dark-sky shadow-semi-lg shadow-yellow-300 text-white align-middle">
               <div>
                 <div class="flex justify-center ">
-                  <?php echo '<img class="w-24 md:w-48 rounded-xl" src="data:image/jpeg;base64,'.base64_encode($photo) .'" />'; ?>
+                  <?php echo '<img class="w-36 md:w-52 rounded-xl" src="data:image/jpeg;base64,'.base64_encode($photo) .'" />'; ?>
                 </div>
 
 
-                <div class="mx-2">
+                <div class="mx-3">
                     <div class="mt-5">
                     <h1 class="font-pixel">NAMA</h1>
                     <img src="{{ asset('/assets/dasboardcaas/Underline_Dashed.png') }}" alt="" />
                     <p class="font-arcade text-sm md:text-xl">{{ $datacaas->name }}</p>
                   </div>
-                  <div class="mt-5">
+                  <div class="mt-1">
                     <h1 class="font-pixel">NIM</h1>
                     <img src="{{ asset('/assets/dasboardcaas/Underline_Dashed.png') }}" alt="" />
                     <p class="font-arcade md:text-xl">{{ $datacaas->nim }}</p>
                   </div>
-                  <div class="mt-5">
+                  <div class="mt-1">
                     <h1 class="font-pixel">JURUSAN</h1>
                     <img src="{{ asset('/assets/dasboardcaas/Underline_Dashed.png') }}" alt="" />
                     <p class="font-arcade md:text-xl">{{ $datacaas->major }}</p>
+                  </div>
+                  <div class="mt-1">
+                    <h1 class="font-pixel">KELAS</h1>
+                    <img src="{{ asset('/assets/dasboardcaas/Underline_Dashed.png') }}" alt="" />
+                    <p class="font-arcade md:text-xl">{{ $datacaas->class }}</p>
                   </div>
                 </div>
 

@@ -28,7 +28,7 @@ module.exports = {
         130: "36rem",
         124: "33rem",
         120: "30rem",
-        180: "28rem",
+        118: "28rem",
       },
       colors: {
         "dark-sky": "#00172B",
