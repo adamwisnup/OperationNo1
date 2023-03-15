@@ -10,6 +10,7 @@ use App\Models\PassCheckMessage;
 use App\Models\Plots;
 use App\Models\Shifts;
 use App\Models\Stages;
+use App\Models\Statuses;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -121,13 +122,14 @@ Route::post('/addShift', function (Request $request) {
     ]);
     return redirect('ListShift');
 })->name('addShift')->middleware('auth:admin');
+
 Route::get('/EditShift/{id}', function ($id) {
     $shift = Shifts::find($id);
     $passcheck = PassCheck::find(1);
     if (!$shift || $passcheck->isPlotRun == 1) {
         return redirect('ListShift');
     }
-    return view('editshift', [
+    return view('editShift', [
         'id' => $shift->id,
         'shiftname' => $shift->shiftname,
         'day' => $shift->day,
@@ -160,7 +162,7 @@ Route::post('deleteShift/{id}', function ($id) {
     } else return redirect('ListShift');
 })->name('deleteShift')->middleware('auth:admin');
 
-Route::post('/deleteShiftconfirm', function (Request $request) {
+Route::post('deleteShiftconfirm', function (Request $request) {
     $shift = Shifts::where('id', $request->id)->first();
     $passcheck = PassCheck::where('id', 1)->first();
     if ($passcheck->isPlotRun == 0)
@@ -185,6 +187,7 @@ Route::post('deleteAllShift', function () {
 Route::get('/caasAccount', function(){
     $datacaas = Datacaas::leftjoin('statuses','datacaas.id','=','statuses.datacaas_id')
 				->leftjoin('stages','stages.id','=','statuses.stages_id')
+                ->orderBy('statuses.isPass', 'desc')
 				->orderBy('datacaas.nim', 'asc')->paginate(20);
 	$stagesname = Stages::where('statusActive',1)->first();
 	$countcaas = Datacaas::count();
@@ -218,7 +221,7 @@ Route::get('/listplot', function () {
     $plots = Datacaas::where('datacaas.id', $id)
         ->leftjoin('plots', 'datacaas.id', '=', 'plots.datacaas_id')
         ->leftjoin('shifts', 'shifts.id', '=', 'plots.shifts_id')
-        ->select('stages.statusActive')->first();
+        ->first();
     $plotactive = Datacaas::where('datacaas.id', $id)
         ->leftjoin('plots', 'datacaas.id', '=', 'plots.datacaas_id')
         ->select('plots.isPlotActive')->first();
@@ -226,14 +229,32 @@ Route::get('/listplot', function () {
         ->leftjoin('plots', 'datacaas.id', '=', 'plots.datacaas_id')
         ->leftjoin('shifts', 'shifts.id', '=', 'plots.shifts_id')
         ->get()->count();
-    $statusstages = Stages::where('stages.statusActive', 1)->first();
+    // $statusstages = Stages::where('stages.statusActive', 1)->first();
     $passcheck = PassCheck::where('id', 1)->first();
     \Carbon\Carbon::setLocale('id');
-    if ($datacaas->isPass == 1 && $statusstages->statusActive == $datacaas->statusActive && $passcheck->isPlotRun == 1 && $plotactive->isPlotActive == NULL) {
-        return view('pilihJadwal', compact('shift', 'datacaas', 'plotactive', 'quotaremain', 'plots', 'statustages'));
-    } elseif ($datacaas->isPass == 0 && $statusstages->statusActive == $datacaas->statusActive && $plotactive->isPlotActive == NULL && $datacaas->statusActive == 1) {
-        return view('plotfirst', compact('shift', 'datacaas', 'plotactive', 'quotaremain', 'plots', 'statustages'));
+    if ($datacaas->isPass == 1 && $datacaas->statusActive == 1 && $passcheck->isPlotRun == 1 && $plotactive->isPlotActive == NULL) {
+        return view('pilihJadwal', compact('shift', 'datacaas', 'plotactive', 'quotaremain', 'plots'));
     } else return redirect('dashboard');
 })->name('listplot')->middleware('auth:datacaas');
 
 Route::post('takeplot/{id}', [PlotController::class, 'takePlot'])->name('takePlot')->middleware('auth:datacaas');
+
+//Add Caas
+// Route::post('/AddStatus', function (){
+//     $caas_id = DataCaas::latest()->first();
+//     $stages = Stages::get();
+
+//     Statuses::create([
+//         'datacaas_id'=>$caas_id->id,
+//         'stages_id'=>$stages->id,
+//         'isPass'=>$request->isPass,
+//     ]);
+//     return redirect('caasAccount');
+
+// })->name('AddStatus')->middleware('auth:admin');
+Route::post('/AddCaas', [CaasController::class,'add'])->name('Addcaas')->middleware('auth:admin');
+Route::get('/EditCaasAccount/{datacaas_id}', [CaasController::class,'edit'])->name('EditCaasAccount')->middleware('auth:admin');
+Route::post('/UpdateCaasAccount/{datacaas_id}', [CaasController::class,'update'])->name('UpdateCaasAccount')->middleware('auth:admin');
+Route::get('/CariNIM', [CaasController::class,'cari'])->name('cari')->middleware('auth:admin');
+Route::get('/delcaasconfirm/{datacaas_id}', [CaasController::class,'delconfirm'])->name('delconfirm')->middleware('auth:admin');
+Route::post('/delcaas/{datacaas_id}', [CaasController::class,'del'])->name('delcaas')->middleware('auth:admin');

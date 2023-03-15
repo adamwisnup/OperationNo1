@@ -18,6 +18,7 @@ module.exports = {
         pixel: ['"VP Pixel"'],
       },
       width: {
+        0.25: "0.0625rem",
         110: "19rem",
         115: "23rem",
         120: "28rem",

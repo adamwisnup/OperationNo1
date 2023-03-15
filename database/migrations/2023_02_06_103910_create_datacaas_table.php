@@ -20,13 +20,12 @@ return new class extends Migration
             $table->string('nim')->unique();
             $table->string('major');
             $table->string('class');
-            $table->binary('photo');
+            $table->string('photo')->nullable();
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
         });
 
-        DB::statement("ALTER TABLE datacaas MODIFY photo MEDIUMBLOB");
     }
 
     /**

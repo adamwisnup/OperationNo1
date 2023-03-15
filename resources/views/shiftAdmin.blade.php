@@ -13,6 +13,126 @@
 <body class="bg-dark-space bg-cover bg-center h-screen">
     @include('partials.sidebarAdm')
     <h1 class="font-arcade text-white text-3xl text-center pt-10">SHIFT</h1>
+
+    <!-- add shift popup -->
+    <div class="fixed z-10 inset-0 overflow-y-auto top-15 hidden" id="popup-tambah">
+        <div class="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+            <div class="fixed inset-0 transition-opacity">
+                <div class="absolute inset-0 bg-deep-sky opacity-75"></div>
+            </div>
+
+            <div class="inline-block align-bottom bg-dream-dark border rounded-lg px-4 pt-5 pb-4 text-center overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full sm:p-6" role="dialog" aria-modal="true" aria-labelledby="modal-headline">
+                <button class="fixed right-1 top-1" id="close-popupTambah">
+                    <img src="{{ asset('assets/admin/radio-excluded-outline.png') }}" alt="close">
+                </button>
+                <h1 class="font-arcade mt-3 text-white text-4xl">Buat Shift baru</h1>
+                <form class="font-arcade text-white" method="POST" action="\addShift">
+                    @csrf
+                    <div class="text-lg">
+                        <p class="py-1">Shift</p>
+                        <input
+                        type="text"
+                        class="text-black text-center w-48 border-white rounded-md"
+                        name="shiftname"
+                        required>
+                        <p class="py-1">Tanggal</p>
+                        <input
+                        type="date"
+                        class="text-black text-center w-48 border-white rounded-md"
+                        name="day"
+                        >
+                        <p class="py-1">Waktu Mulai</p>
+                        <input
+                        type="time"
+                        class="text-black text-center w-48 border-white rounded-md"
+                        name="time_start"
+                        required>
+                        <p class="py-1">Waktu Selesai</p>
+                        <input type="time"
+                        class="text-black text-center w-48 border-white rounded-md"
+                        name="time_end"
+                        required>
+                        <p class="py-1">Kuota</p>
+                        <input type="number"
+                        class="text-area-fill text-black text-center w-48 border-white rounded-md"
+                        name="quota"
+                        required>
+                    </div>
+                    <button type="button-submit" class="bg-green-700 rounded-lg py-2 px-4 m-4">Buat Shift</button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- edit shift popup -->
+    <div class="fixed z-10 inset-0 overflow-y-auto top-15 hidden" id="popup-editShift">
+        <div class="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+            <div class="fixed inset-0 transition-opacity">
+                <div class="absolute inset-0 bg-deep-sky opacity-75"></div>
+            </div>
+
+            <div class="inline-block align-bottom bg-dream-dark border rounded-lg px-4 pt-5 pb-4 text-center overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full sm:p-6" role="dialog" aria-modal="true" aria-labelledby="modal-headline">
+                <button class="fixed right-1 top-1" id="close-popupEditShift">
+                    <img src="{{ asset('assets/admin/radio-excluded-outline.png') }}" alt="close">
+                </button>
+                <h1 class="font-arcade mt-3 text-white text-4xl">Buat Shift baru</h1>
+                <form class="font-arcade text-white" method="POST" action="\addShift">
+                    @csrf
+                    <div class="text-lg">
+                        <p class="py-1">Shift</p>
+                        <input
+                        type="text"
+                        class="text-black text-center w-48 border-white rounded-md"
+                        name="shiftname"
+                        required>
+                        <p class="py-1">Tanggal</p>
+                        <input
+                        type="date"
+                        class="text-black text-center w-48 border-white rounded-md"
+                        name="day"
+                        >
+                        <p class="py-1">Waktu Mulai</p>
+                        <input
+                        type="time"
+                        class="text-black text-center w-48 border-white rounded-md"
+                        name="time_start"
+                        required>
+                        <p class="py-1">Waktu Selesai</p>
+                        <input type="time"
+                        class="text-black text-center w-48 border-white rounded-md"
+                        name="time_end"
+                        required>
+                        <p class="py-1">Kuota</p>
+                        <input type="number"
+                        class="text-area-fill text-black text-center w-48 border-white rounded-md"
+                        name="quota"
+                        required>
+                    </div>
+                    <button type="button-submit" class="bg-green-700 rounded-lg py-2 px-4 m-4">Buat Shift</button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+    {{-- Reset Shift --}}
+    <div class="fixed z-10 inset-0 overflow-y-auto top-15 hidden" id="popup-reset">
+        <div class="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center">
+            <div class="fixed inset-0 transition-opacity">
+                <div class="absolute inset-0 bg-deep-sky opacity-75"></div>
+            </div>
+
+            <form class="inline-block bg-dream-dark border px-4 text-center overflow-hidden shadow-in-semi-sm shadow-white rounded-lg transform transition-all" role="dialog" method="POST" action="\deleteAllShift">
+                @csrf
+                <p class="text-white font-arcade text-xl pt-4">Apakah kamu yakin untuk menghapus seluruh shift?</p>
+                <button type="submit" class="text-white font-arcade bg-red-700 shadow-in-semi-sm shadow-white rounded-lg py-2 px-4 m-4" >Hapus Shift</button>
+                <button type="button" class="text-white font-arcade bg-green-700 shadow-in-semi-sm shadow-white rounded-lg py-2 px-4 m-4" id="close-popupReset">Batal</button>
+            </form>
+        </div>
+    </div>
+
+
     <div class="flex justify-center mt-10">
         <div class="flex justify-between w-[53%]">
             <!-- Stats -->
@@ -22,38 +142,40 @@
             </div>
             <!-- buttons -->
             <div class="flex justify-between font-arcade text-lg w-[24rem]">
-                <button class="w-32 h-12 bg-[#426006] shadow-[inset_0px_0px_8px_2px_#FFFFFF] rounded-[8px] text-[#D5ECCA]"><h1>Tambah Shift</h1></button>
-                <button class="w-28 h-12 bg-[#BF262F] shadow-[inset_0px_0px_8px_2px_#FFFFFF] rounded-[8px] text-[#FFCECB]"><h1>Reset Plot</h1></button>
-                <button class="w-32 h-12 bg-[#BF262F] shadow-[inset_0px_0px_8px_2px_#FFFFFF] rounded-[8px] text-[#FFCECB]"><h1>Reset Shift</h1></button>
+                <button class="w-32 h-12 bg-green-700 shadow-in-semi-sm hover:shadow-semi-sm shadow-white hover:shadow-white rounded-lg text-green-200" id="tambah-popup"><h1>Tambah Shift</h1></button>
+                <button class="w-28 h-12 bg-red-700 shadow-in-semi-sm hover:shadow-semi-sm shadow-white hover:shadow-white rounded-lg text-red-200"><h1>Reset Plot</h1></button>
+                <button class="w-32 h-12 bg-red-700 shadow-in-semi-sm hover:shadow-semi-sm shadow-white hover:shadow-white rounded-lg text-red-200" id="reset-popup"><h1>Reset Shift</h1></button>
             </div>
         </div>
     </div>
     <!-- table of caas -->
     <div class="flex justify-center mt-2">
         <table class="shadow-lg bg-white border-collapse font-arcade">
-            <tr class="bg-[#00111E] text-[#E1F2FF] text-center">
-              <th class="border border-[#E1F2FF]">NO</th>
-              <th class="border border-[#E1F2FF]">SHIFT</th>
-              <th class="border border-[#E1F2FF]">TANGGAL</th>
-              <th class="border border-[#E1F2FF]">WAKTU</th>
-              <th class="border border-[#E1F2FF]">KUOTA</th>
-              <th class="border border-[#E1F2FF]">OPSI</th>
+            <tr class="bg-dream-dark text-white text-center">
+              <th class="border border-white">NO</th>
+              <th class="border border-white">SHIFT</th>
+              <th class="border border-white">TANGGAL</th>
+              <th class="border border-white">WAKTU</th>
+              <th class="border border-white">KUOTA</th>
+              <th class="border border-white">OPSI</th>
             </tr>
             <?php $no = 1;?>
             @foreach($shift as $s)
-            <tr class="text-[#00111E] text-center">
+            <tr class="text-dream-dark text-center">
               <td class="border border-[#00111E] px-2">{{$no++}}</td>
               <td class="border border-[#00111E] px-10">{{$s->shiftname}}</td>
               <td class="border border-[#00111E] px-10">{{$s->day}}</td>
-              <td class="border border-[#00111E] px-10">{{$s->time_start}}-{{$s->time_end}}</td>
+              <td class="border border-[#00111E] px-10">{{$s->time_start}} - {{$s->time_end}}</td>
               <td class="text-[#426006] border border-[#00111E] px-10">{{$s->quota}}</td>
               <td class="border border-[#00111E] px-10">
-                <button class="duration-200 hover:underline active:text-[#00111e6b]"><h1>Edit</h1></button>
+                <a href="/EditShift/{{$s->id}}"><button class="duration-200 hover:underline active:text-[#00111e6b]" id="#editShift-popup"><h1>Edit</h1></button></a>
+                <a href="/deleteShiftconfirm/{{$s->id}}"><button class="duration-200 hover:underline active:text-[#00111e6b]"><h1>Hapus</h1></button></a>
               </td>
             </tr>
             @endforeach
         </table>
         @include('partials.footer')
     </div>
+    <script src="{{ asset('/js/popup.js') }}"></script>
 </body>
 </html>

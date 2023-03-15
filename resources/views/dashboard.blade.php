@@ -13,11 +13,12 @@
 
         @include('partials.sidebarCaas')
 
-        <div class="flex justify-center pt-16">
+        <div class="flex justify-center sm:justify-center md:justify-center lg:justify-center pt-16">
             <div class="flex justify-center pt-12 rounded-lg w-64 h-118 md:w-115 md:h-124 bg-dark-sky shadow-semi-lg shadow-yellow-300 text-white align-middle">
               <div>
                 <div class="flex justify-center ">
-                  <?php echo '<img class="w-36 md:w-52 rounded-xl" src="data:image/jpeg;base64,'.base64_encode($photo) .'" />'; ?>
+                  {{-- <?php echo '<img class="w-36 md:w-52 rounded-xl" src="data:image/jpeg;base64,'.base64_encode($photo) .'" />'; ?> --}}
+                  <img src="assets/caas/{{ $datacaas->nim }}.jpg" class="w-36 md:w-52 rounded-xl" alt="FOTO CAAS">
                 </div>
 
 

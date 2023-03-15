@@ -46,8 +46,8 @@
         </div>
       </div>
       <div class="flex justify-center mt-6 md:mt-0">
-        <div class="text-white bg-sky-900 pt-2 pb-2 pr-12 pl-12 rounded-lg shadow-semi-sm shadow-yellow-500 hover:shadow-white">
-          <a  class="button text-lx font-pixel" href="/loginCaas">LOGIN</a>
+        <div class="text-white bg-sky-900 pt-2 pb-2 rounded-lg shadow-semi-sm shadow-yellow-500 hover:shadow-white">
+          <a  class="button text-lx font-pixel pt-2 pb-2 pr-12 pl-12" href="/loginCaas"><span>LOGIN</span></a>
         </div>
       </div>
       <div class="flex text-white justify-between">
