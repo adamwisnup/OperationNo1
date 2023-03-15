@@ -14,7 +14,7 @@
         </div>
 
         <li class="relative mt-2 p-1 list-none">
-          <a href="/adminHome" class="shadow-semi-xl shadow-yellow-300 hover:text-black hover:bg-white flex w-full  h-8 md:h-10 rounded-xl items-center no-underline bg-dream-dark">
+          <a href="/adminHome" class="shadow-semi-xl shadow-white hover:text-black hover:bg-white flex w-full  h-8 md:h-10 rounded-xl items-center no-underline bg-dream-dark">
             <img class="pl-2 h-8" src="{{ asset("/assets/sidebar/Asteroid1.png") }}" alt="Asteroid" />
             <span class="text-xs md:text-base font-arcade whitespace-nowrap">Dashboard</span>
           </a>

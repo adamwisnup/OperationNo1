@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Models\DataCaas;
 use App\Models\Stages;
+use App\Models\Statuses;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -47,7 +48,7 @@ class CaasController extends Controller
         $photo = $datacaas->photo;
         // dd($photo);
         // die;
-        
+
         return view('dashboard', ['datacaas' => $datacaas, 'title' => $title, 'photo'=>$photo]); // disesuaikan sama nama bladenya
     }
 
@@ -55,13 +56,14 @@ class CaasController extends Controller
         $caas = Datacaas::leftjoin('statuses','datacaas.id','=','statuses.datacaas_id')
 					->leftjoin('stages','stages.id','=','statuses.stages_id')
 					->orderBy('datacaas.nim', 'asc')->paginate(20);
+        $caas_id = DataCaas::all()->select('id');
 		$stagesname = Stages::select('stagesname')->first();
 		$countcaas = Datacaas::count();
 		$countcaaslolos = Datacaas::leftjoin('statuses','datacaas.id','=','statuses.datacaas_id')
 					->leftjoin('stages','stages.id','=','statuses.stages_id')
 					->where('statuses.isPass',1)->count();
 		$countcaasnotlolos = $countcaas-$countcaaslolos;
-		return view('CaasAccount',compact('caas','stagesname','countcaas','countcaaslolos','countcaasnotlolos')); // disesuaikan sama nama bladenya
+		return view('CaasAccount',compact('caas','caas_id','stagesname','countcaas','countcaaslolos','countcaasnotlolos')); // disesuaikan sama nama bladenya
     }
     public function changepass(Request $request)
     {
@@ -79,7 +81,115 @@ class CaasController extends Controller
     // return redirect('loginCaas', ['title'=>$title]);
     return redirect()->route('loginCaas')->with('title', $title);
     }
-    // biar bisa di commit
+
+    public function add(Request $request){
+        $rules = [
+            'nim' => 'required|unique:datacaas|min:10',
+        ];
+
+        $this->validate($request, $rules);
+
+        $caas = DataCaas::create([
+            'name' => $request->name,
+            'nim' => $request->nim,
+            'email' => $request->email,
+            'password' => Hash::make($request->nim.='2023'),
+            'major' => $request->major,
+            'class' => $request->class
+        ]);
+
+        $stages = Stages::findOrFail($request->stages_id);
+
+        Statuses::create([
+            'datacaas_id'=>$caas->id,
+            'stages_id'=>$stages->id,
+            'isPass'=>$request->isPass,
+        ]);
+
+        return redirect('caasAccount');
+    }
+
+    public function edit($datacaas_id){
+        $caas = DataCaas::where('datacaas.id', $datacaas_id)
+                ->leftjoin('statuses','datacaas.id','=','statuses.datacaas_id')
+                ->leftjoin('stages','stages.id','=','statuses.stages_id')
+                ->orderBy('statuses.stages_id', 'desc')->first();
+        $stages = Stages::get();
+        $countcaas = Datacaas::count();
+        $countcaaslolos = Datacaas::leftjoin('statuses','datacaas.id','=','statuses.datacaas_id')
+                    ->leftjoin('stages','stages.id','=','statuses.stages_id')
+                    ->where('statuses.isPass',1)->count();
+        $countcaasnotlolos = $countcaas-$countcaaslolos;
+        return view('editCaas',[
+            'datacaas'=>$caas,
+            'datacaas_id'=>$caas->datacaas_id,
+            'name'=>$caas->name,
+            'isPass'=>$caas->isPass,
+            'stages_id'=>$caas->id, // merujuk ke stages.id
+            'nim'=>$caas->nim,
+            'email'=>$caas->email,
+            'stagesname'=>$caas->stagesname,
+            'countcaas' => $countcaas,
+            'countcaaslolos' => $countcaaslolos,
+            'countcaasnotlolos' => $countcaasnotlolos
+        ]);
+    }
+
+    public function update($datacaas_id,Request $request){
+    $a = Datacaas::find($datacaas_id);
+    $caas = Datacaas::where('datacaas.id',$datacaas_id)
+                    ->leftjoin('statuses','datacaas.id','=','statuses.datacaas_id')
+                    ->leftjoin('stages','stages.id','=','statuses.stages_id')
+                    ->update([
+                        'name'=>$request->name,
+                        'nim'=>$request->nim,
+                        'email'=>$request->email,
+                        'password'=>$a->password,
+                        'datacaas.id'=>$datacaas_id,
+                        'isPass'=>$request->isPass,
+                        'stages_id'=>$request->stages_id,
+                    ]);
+    return redirect('caasAccount');
+    }
+
+    public function cari(Request $request){
+  $find = $request->find;
+  $caas = Datacaas::where('nim','like',$find."%")
+    ->leftjoin('statuses','datacaas.id','=','statuses.datacaas_id')
+    ->leftjoin('stages','stages.id','=','statuses.stages_id')
+    ->orderBy('statuses.stages_id', 'desc')->paginate();
+  $stages = Stages::get();
+  $countcaas = Datacaas::count();
+     $countcaaslolos = Datacaas::leftjoin('statuses','datacaas.id','=','statuses.datacaas_id')
+                ->leftjoin('stages','stages.id','=','statuses.stages_id')
+                ->where('statuses.isPass',1)->count();
+     $countcaasnotlolos = $countcaas-$countcaaslolos;
+  return view('datacaasAdmin',compact('caas','stages','countcaas','countcaaslolos','countcaasnotlolos'));
+ }
+
+    public function del($datacaas_id){
+  $caas = Datacaas::find($datacaas_id);
+  $caas -> delete();
+  return redirect('caasAccount');
+ }
+
+    public function delconfirm($datacaas_id){
+  $caas = Datacaas::where('datacaas.id', $datacaas_id)
+                ->leftjoin('statuses','datacaas.id','=','statuses.datacaas_id')
+                ->leftjoin('stages','stages.id','=','statuses.stages_id')
+                ->orderBy('statuses.stages_id', 'desc')->first();
+  $stages = Stages::where('statusActive', 1)->first();
+  return view('delcaas',[
+    'datacaas' => $caas,
+   'datacaas_id'=>$caas->datacaas_id,
+   'name'=>$caas->name,
+   'isPass'=>$caas->isPass,
+   'nim'=>$caas->nim,
+   'email'=>$caas->email,
+   'stages'=>$stages,
+   'stagesname'=>$caas->stagesname,
+   ]);
+ }
 
 
 }

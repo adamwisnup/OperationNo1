@@ -15,7 +15,7 @@
           <div class="static flex justify-center pt-12 rounded-lg w-56 h-96 md:w-110 md:h-120 bg-dark-sky shadow-semi-lg shadow-yellow-300 text-white align-middle">
             <div>
               <div class="flex justify-center">
-                <img class="w-24 md:w-48 rounded-lg absolute top-12" src="/public/assets/dasboardcaas/REY.png" />
+                <img class="w-24 md:w-48 rounded-lg absolute top-12" src="{{ $sisten->ascod }}.jpg" />
               </div>
 
               <div class="pt-28 mx-2">

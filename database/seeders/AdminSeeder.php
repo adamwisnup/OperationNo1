@@ -31,5 +31,35 @@ class AdminSeeder extends Seeder
             'ascod' => 'MAI',
             'password' => Hash::make('123456789'),
         ]);
+        DB::table('admins')->insert([
+            'name' => 'Riska Nur Aina',
+            'ascod' => 'RIS',
+            'password' => Hash::make('123456789'),
+        ]);
+        DB::table('admins')->insert([
+            'name' => 'Nabila',
+            'ascod' => 'NAB',
+            'password' => Hash::make('123456789'),
+        ]);
+        DB::table('admins')->insert([
+            'name' => 'Zahira',
+            'ascod' => 'JHS',
+            'password' => Hash::make('123456789'),
+        ]);
+        DB::table('admins')->insert([
+            'name' => '#',
+            'ascod' => 'QIA',
+            'password' => Hash::make('123456789'),
+        ]);
+        DB::table('admins')->insert([
+            'name' => 'Zaidan Fitra B',
+            'ascod' => 'ZAQ',
+            'password' => Hash::make('123456789'),
+        ]);
+        DB::table('admins')->insert([
+            'name' => 'Marshaniswah',
+            'ascod' => 'MNS',
+            'password' => Hash::make('123456789'),
+        ]);
     }
 }
