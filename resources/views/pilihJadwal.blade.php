@@ -39,26 +39,26 @@
             </thead>
 
             <tbody>
-              <tr class="bg-white text-black table-auto">
-                <th class="border border-dark-sky px-2">1</th>
-                <th class="border border-dark-sky px-2">Shift 1</th>
-                <th class="border border-dark-sky px-2">30 Desember</th>
-                <th class="border border-dark-sky px-2">14:30 - 6:30</th>
-                <th class="border border-dark-sky px-2 text-green-800">5</th>
-                <th class="border border-dark-sky px-2">
-                  <button class="bg-dark-sky hover:bg-green-400 rounded-md text-white hover:text-green-800 px-2 border border-gray-500 m-1">Pilih</button>
-                </th>
-              </tr>
-              <tr class="bg-white text-black table-auto">
-                <th class="border border-dark-sky px-2">2</th>
-                <th class="border border-dark-sky px-2">Shift 2</th>
-                <th class="border border-dark-sky px-2">31 Desember</th>
-                <th class="border border-dark-sky px-2">14:30 - 6:30</th>
-                <th class="border border-dark-sky px-2 text-red-800">Penuh</th>
-                <th class="border border-dark-sky px-2">
-                  <button class="bg-dark-sky hover:bg-red-400 rounded-md text-white hover:text-red-800 px-2 border border-gray-500 m-1">Pilih</button>
-                </th>
-              </tr>
+                <?php $no = 1;?>
+                @foreach($shift as $s)
+                <tr class="bg-white text-black table-auto">
+                <th class="border border-dark-sky px-2">{{$no++}}</th>
+                <th class="border border-dark-sky px-2">{{$s->shiftname}}</th>
+                <th class="border border-dark-sky px-2">{{$s->day}}</th>
+                <th class="border border-dark-sky px-2">{{$s->time_start}} - {{$s->time_end}}</th>
+                @if ($s->quota > 0)
+                    <th class="text-[#426006] border border-dark-sky px-2 ">{{$s->quota}}</th>
+                    <th class="border border-dark-sky px-2">
+                        <button class="bg-dark-sky hover:bg-green-400 rounded-md text-white hover:text-green-800 px-2 border border-gray-500 m-1">Pilih</button>
+                    </th>
+                    </tr>
+                @else
+                    <th class="text-red-800 border border-dark-sky px-2">PENUH</th>
+                    </tr>
+
+                @endif
+                @endforeach
+
             </tbody>
           </table>
         </div>

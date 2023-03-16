@@ -57,5 +57,12 @@ class PlotsSeeder extends Seeder
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'),
         ]);
+        DB::table('plots')->insert([
+            'isPlotActive' => 1,
+            'datacaas_id' =>8,
+            'shifts_id' =>6,
+            'created_at' => date('Y-m-d H:i:s'),
+            'updated_at' => date('Y-m-d H:i:s'),
+        ]);
     }
 }
