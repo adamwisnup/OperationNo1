@@ -40,5 +40,6 @@ class PlotController extends Controller
         } elseif ($datacaas->isPass == 0 && $statusstages->statusActive == $datacaas->statusActive && $plotactive->isPlotActive == NULL && $datacaas->statusActive == 1) {
             return view('plotfirst', compact('shift', 'datacaas', 'plotactive', 'quotaremain', 'plots', 'statustages', 'limit'));
         } else return redirect('listplot');
+        
     }
 }

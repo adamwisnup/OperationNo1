@@ -19,8 +19,11 @@ module.exports = {
       },
       width: {
         0.25: "0.0625rem",
+        108: "16rem",
         110: "19rem",
+        112: "21rem",
         115: "23rem",
+        117: "27rem",
         120: "28rem",
         130: "36rem",
         170: "50rem",
@@ -30,6 +33,10 @@ module.exports = {
         124: "33rem",
         120: "30rem",
         118: "28rem",
+        117: "27rem",
+        116: "25rem",
+        115: "23rem",
+        112: "21rem",
       },
       colors: {
         "dark-sky": "#00172B",

@@ -1,4 +1,4 @@
-<nav class="sidebar fixed left-0 right-0 h-full w-12 md:w-20 bg-dark-sky pr-1.5 pt-3.5 z-99 transition-all ease-in-out duration-700">
+<nav class="sidebar z-100 fixed left-0 right-0 h-full w-12 md:w-20 bg-dark-sky pr-1.5 pt-3.5 z-99 transition-all ease-in-out duration-700">
     <div class="flex relative items-center">
       <i class="absolute top-1/2 right-0.5 md:right-4 cursor-pointer text-lg" id="btn">
         <img src="{{ asset('/assets/sidebar/Burger.png') }}" alt="" />
@@ -55,7 +55,7 @@
         </div>
 
         <li class="relative mt-2 p-1 list-none">
-          <a href="#" class="shadow-semi-xl shadow-white hover:text-black hover:bg-white flex w-full h-8 md:h-10 rounded-xl items-center no-underline bg-dream-dark">
+          <a href="{{ route('assistantContact') }}" class="shadow-semi-xl {{ ($title === "Asisstant Contact") ? 'shadow-yellow-300' : 'shadow-white' }} hover:text-black hover:bg-white flex w-full h-8 md:h-10 rounded-xl items-center no-underline bg-dream-dark">
             <img class="text-white pl-2 h-8" src="{{ asset('/assets/sidebar/Asteroid5.png') }}" alt="Asteroid" />
             <span class="text-xs md:text-base font-arcade whitespace-nowrap">Assistants</span>
           </a>
