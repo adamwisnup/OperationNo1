@@ -27,6 +27,24 @@ closePopupReset.addEventListener("click", () => {
 });
 
 // Pilih shift End
+
+// reset plot start
+const reset_plotPopup = document.querySelector("#resetPlot-popup");
+
+const popupResetPlot = document.querySelector("#popup-resetPlot");
+reset_plotPopup.addEventListener("click", () => {
+  popupResetPlot.classList.remove("hidden");
+  document.body.classList.add("overflow-hidden");
+});
+
+const closePopupResetPlot = document.querySelector("#close-popupResetPlot");
+closePopupResetPlot.addEventListener("click", () => {
+  popupResetPlot.classList.add("hidden");
+  document.body.classList.remove("overflow-hidden");
+});
+// reset plot end
+
+
 // edit shift Start
 const editShiftPopup = document.querySelector("#editShift-popup");
 
@@ -41,3 +59,4 @@ closeeditShift.addEventListener("click", () => {
   popupEditShift.classList.add("hidden");
   document.body.classList.remove("overflow-hidden");
 });
+// edit shift end

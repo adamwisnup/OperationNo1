@@ -14,7 +14,7 @@
     <h1 class="font-arcade text-white text-3xl text-center pt-10">EDIT SHIFT</h1>
     <div class="overflow-y-auto top-15" id="popup-tambah">
         <div class="rounded-lg px-4 pt-5 pb-4 text-center overflow-hidden shadow-xl transform transition-all " role="dialog" aria-modal="true" aria-labelledby="modal-headline">
-            <form class="font-arcade text-white" method="POST" action="UpdateShift/{id}">
+            <form class="font-arcade text-white" method="POST" action="/UpdateShift/{{ $id }}">
                 @csrf
                 <div class="text-lg">
                     <p class="py-1">Shift</p>

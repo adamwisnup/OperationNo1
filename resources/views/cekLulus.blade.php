@@ -17,19 +17,22 @@
                 <div>
                   <div class="mt-5">
                     <h1 class="font-arcade text-2xl text-center pb-10">
-                    @if ($isPass==1)
-                   {{  $pass }}
-                    @else {{$failed}}
-                    @endif
+                        @if($Active == 1)
+                            @if ($isPass==1)
+                        {{  $pass }}
+                            @else {{$failed}}
+                            @endif
+                        @else
+                            Tahap Sedang Berlangsung!!!
+                        @endif
                     </h1>
                         <div class="font-pixel text-lg text-center mx-8">
+                        @if($Active == 1)
                         @if ($isPass==1)
-                        <p>Selamat kamu lulus tahap {{ $stagesname }}, silahkan hubungi MAI</p>
-                            {{-- @if ($stagesname=='Teaching')
-                            <p class="font-pixel">Untuk tahap selanjutnya silahkan klik link di bawah ini</p>
-                            {{ $link }}
-                            @else
-                            @endif --}}
+                        <p>Selamat kamu lulus tahap {{ $stagesname }}, Silahkan pantau terus OA DLOR & Grup Caas!</p>
+                        <p>Dan jangan lupa tetap semangat!</p>
+                        <br/>
+                        <P>Explore the Milky Way</P>
                         @else
                         <p>Maaf ya kamu harus berherhenti di tahap {{ $stagesname }}. Jangan menyerah ya, tetaplah semangat, jadikan ini sebagai pembelajaran untuk kedepanya.</p>
                         <br/>
@@ -37,6 +40,10 @@
                         <br/>
                         <p class="hidden md:block">“You never fail until you stop trying.” – Albert Einstein</p>
                         @endif
+                        @else
+                            Tahap Sedang Berlangsung, silakan pantau pengumuman selanjutnya!!!
+                        @endif
+
                         </div>
                   </div>
                 </div>

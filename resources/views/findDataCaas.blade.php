@@ -26,7 +26,7 @@
                         <img src="{{ asset('assets/admin/radio-excluded-outline.png') }}" alt="close">
                     </button>
                     <h1 class="font-arcade mt-3 text-white text-4xl">Data Caas</h1>
-                    <form class="font-arcade text-white" method="POST" action="/UpdateCaasAccount/{{ $datacaas->datacaas_id }}">
+                    <form class="font-arcade text-white" method="POST" action="/AddCaas">
                         @csrf
                         <div class="text-lg">
                             <p>Nama</p>
@@ -35,7 +35,6 @@
                             class="text-black text-center w-48 border-white rounded-md my-1"
                             name="name"
                             placeholder="Maxwell Julian"
-                            value="{{ $datacaas->name }}"
                             required>
                             <br>
                             <p>NIM</p>
@@ -44,7 +43,6 @@
                             class="text-black text-center w-48 border-white rounded-md mx-1"
                             name="nim"
                             placeholder="1102218989"
-                            value="{{ $datacaas->nim }}"
                             required>
                             <br>
                             <p>Jurusan</p>
@@ -53,7 +51,6 @@
                             class="text-black text-center w-48 border-white rounded-md mx-1"
                             name="major"
                             placeholder="Teknik Elektro"
-                            value="{{ $datacaas->major }}"
                             required>
                             <br>
                             <p>Kelas</p>
@@ -62,7 +59,6 @@
                             class="text-black text-center w-48 border-white rounded-md mx-1"
                             name="class"
                             placeholder="EL-45-01"
-                            value="{{ $datacaas->class }}"
                             required>
                             <br>
                             <p>Email</p>
@@ -71,7 +67,6 @@
                             class="text-black text-center w-48 border-white rounded-md mx-1"
                             name="email"
                             placeholder="email@gmail.com"
-                            value="{{ $datacaas->email }}"
                             required>
                             <br>
                             <p class="pt-2">Tahap</p>
@@ -96,37 +91,76 @@
                                 <option value="0">Tidak Lulus</option>
                             </select>
                         </div>
-                        <button type="submit" class="bg-green-700 rounded-lg py-2 px-4 m-4">Edit Caas</button>
+                        <button type="submit" class="bg-green-700 rounded-lg py-2 px-4 m-4">Masukan Caas</button>
                     </form>
 
                 </div>
             </div>
         </div>
-        <div class="text-dark bg-gray-700 text-center font-pixel text-2xl p-20 rounded-lg">
-            <p class="px-10 text-white">Nama</p>
-            <img class="w-96" src="{{ asset('/assets/dasboardcaas/Underline_Dashed.png') }}" alt="" />
-            <p class="px-10 mb-5">{{ $name }}</p>
-            <p class="px-10 text-white">NIM</p>
-            <img class="w-96" src="{{ asset('/assets/dasboardcaas/Underline_Dashed.png') }}" alt="" />
-            <p class="px-10 mb-5">{{ $nim }}</p>
-            <p class="px-10 text-white">Status</p>
-            <img class="w-96" src="{{ asset('/assets/dasboardcaas/Underline_Dashed.png') }}" alt="" />
-                @if($isPass==1)
-                <p class="text-green-700 px-10 mb-5">Lolos</p>
-                @else
-                <p class="text-red-700 px-10 mb-5">Tidak lolos</p>
-                @endif
-                <p class="px-10 text-white">Tahap</p>
-                <img class="w-96" src="{{ asset('/assets/dasboardcaas/Underline_Dashed.png') }}" alt="" />
-                <p class="px-10">{{ $stagesname }}</p>
-            </div>
-        <div class="grid justify-items-center my-4">
+        <div class="items-center h-32 w-2/4 bg-white bg-opacity-10">
+
+           <div class="grid justify-items-center my-4">
             <button class="w-48 h-14 bg-[#00172B] font-arcade text-center text-white shadow-[inset_0px_0px_8px_2px_#FFFFFF] rounded-[8px] duration-200 hover:shadow-[inset_0px_0px_8px_2px_#f3964a] active:shadow-[inset_0px_0px_8px_2px_#ffd0a9]" id="tambahCaas-popup">
-                <h1 class="duration-200 buttonText flex justify-center items-center h-[48px] hover:text-lg active:text-base" >EDIT AKUN CAAS</h1>
+                <h1 class="duration-200 buttonText flex justify-center items-center h-[48px] hover:text-lg active:text-base" >BUAT AKUN CAAS</h1>
             </button>
+           </div>
+
+            <div class="flex justify-around w-full font-arcade text-white text-xl">
+                <div class="flex"><h1>TOTAL CAAS : &nbsp</h1><h1 id="totalCaas">{{  $countcaas}}</h1></div>
+                <div class="flex"><h1>TOTAL LULUS : &nbsp</h1><h1 class="text-green-700" id="totalLulus">{{ $countcaaslolos }}</h1></div>
+                <div class="flex"><h1>TOTAL GAGAL : &nbsp</h1><h1 class="text-red-700" id="totalGagal">{{ $countcaasnotlolos }}</h1></div>
+            </div>
         </div>
+        <!-- search bar name caas -->
+        <div class="pt-8 relative text-white font-arcade py-4">
+            <form action="/findCaasAccount" method="post">
+                @csrf
+                <input class="searchBar w-72 border-2 border-gray-300 bg-opacity-10 bg-gray-100 h-10 px-5 pr-16 rounded-lg text-sm focus:outline-none"
+                  type="search" name="find" placeholder="Cari  NIM  CAAS">
+                  <button type="submit" class="bg-green-700 hover:bg-green-800 rounded-lg py-2 px-4 m-4">Cari</button>
+            </form>
+        </div>
+        <!-- table of caas -->
+
+        <table class="shadow-lg bg-white border-collapse font-pixel mt-4 mb-8">
+          <thead>
+            <tr class="bg-dream-dark text-white text-center">
+                <th class="border border-white">NO</th>
+                <th class="border border-white">NAMA</th>
+                <th class="border border-white">NIM</th>
+                <th class="border border-white">STATUS</th>
+                <th class="border border-white">TAHAP</th>
+                <th class="border border-white">OPSI</th>
+              </tr>
+          </thead>
+          <tbody>
+            <?php $no = 1;?>
+            <tr class="text-dream-dark text-center">
+
+                <td class="border border-dream-dark px-2">{{ $no++ }}</td>
+                <td class="border border-dream-dark px-10">{{ $datacaas->name }}</td>
+                <td class="border border-dream-dark px-10">{{ $datacaas->nim }}</td>
+                @if($datacaas->isPass==1)
+                <td class="text-green-700 border border-dream-dark px-10">Lolos</td>
+                @else
+                <td class="text-red-700 border border-dream-dark px-10">Tidak lolos</td>
+                @endif
+                <td class="border border-[#00111E] px-10">{{ $datacaas->stagesname }}</td>
+                <td class="border border-[#00111E] px-10 pt-2">
+                    <a href="/EditCaasAccount/{{ $datacaas->datacaas_id }}">
+                        <button class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-3 py-2 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800 duration-200 active:text-[#00111e6b]"><h1>Edit</h1></button>
+                    </a>
+                    <a href="/delcaasconfirm/{{ $datacaas->datacaas_id }}">
+                        <button class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-3 py-2 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900 duration-200 active:text-[#00111e6b]"><h1>Hapus</h1></button>
+                    </a>
+                </td>
+              </tr>
+          </tbody>
+
+        </table>
 
 
-        <script src="{{ asset('/js/dataCaas_popup.js') }}"></script>
+         @include('partials.footerAdm')
+         <script src="{{ asset('/js/dataCaas_popup.js') }}"></script>
     </body>
 </html>

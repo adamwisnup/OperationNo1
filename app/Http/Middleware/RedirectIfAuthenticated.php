@@ -24,7 +24,7 @@ class RedirectIfAuthenticated
             switch ($guard) {
                 case 'datacaas':
                     if (Auth::guard($guard)->check())
-                        return redirect()->route('home');
+                        return redirect()->route('dashboard');
                     break;
                 case 'admin':
                     if (Auth::guard($guard)->check())

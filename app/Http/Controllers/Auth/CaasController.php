@@ -153,18 +153,17 @@ class CaasController extends Controller
     }
 
     public function cari(Request $request){
-  $find = $request->find;
-  $caas = Datacaas::where('nim','like',$find."%")
-    ->leftjoin('statuses','datacaas.id','=','statuses.datacaas_id')
-    ->leftjoin('stages','stages.id','=','statuses.stages_id')
-    ->orderBy('statuses.stages_id', 'desc')->paginate();
-  $stages = Stages::get();
-  $countcaas = Datacaas::count();
-     $countcaaslolos = Datacaas::leftjoin('statuses','datacaas.id','=','statuses.datacaas_id')
+    $find = $request->find;
+    $datacaas = Datacaas::where('nim','like',$find."%")
+        ->leftjoin('statuses','datacaas.id','=','statuses.datacaas_id')
+        ->leftjoin('stages','stages.id','=','statuses.stages_id')
+        ->first();
+    $countcaas = Datacaas::count();
+    $countcaaslolos = Datacaas::leftjoin('statuses','datacaas.id','=','statuses.datacaas_id')
                 ->leftjoin('stages','stages.id','=','statuses.stages_id')
                 ->where('statuses.isPass',1)->count();
-     $countcaasnotlolos = $countcaas-$countcaaslolos;
-  return view('datacaasAdmin',compact('caas','stages','countcaas','countcaaslolos','countcaasnotlolos'));
+    $countcaasnotlolos = $countcaas-$countcaaslolos;
+    return view('findDataCaas',compact('datacaas','countcaas','countcaaslolos','countcaasnotlolos'));
  }
 
     public function del($datacaas_id){
