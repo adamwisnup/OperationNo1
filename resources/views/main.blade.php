@@ -26,13 +26,13 @@
         <h1 class="text-sm md:text-4xl font-arcade">DASKOM LABOLATORY OPEN RECRUITMENT 2023</h1>
       </div>
       <div class="flex justify-center">
-        <img src="{{ asset('/assets/homepage/Future_Earth.gif') }}" class="m-10 md:m-20 w-27 xl:w-80" />
+        <img src="{{ asset('/assets/homepage/Future_Earth.gif') }}" class="m-10 md:m-16 w-27 md:w-64" />
       </div>
-      <div class="text-white text-center font-pixel xl:m-11 2xl:m-28">
+      <div class="text-white text-center font-pixel md:m-16">
         <p>#Explore the Milky Way</p>
         <p>Make Your Way Create The Future</p>
       </div>
-      <div class="flex 2xl:mt-24 text-white justify-between">
+      <div class="flex text-white justify-between">
         <div>
           <img src="{{ asset('/assets/homepage/Black_Hole.gif') }}" class="w-80 ml-12 hidden md:block" />
         </div>
@@ -56,7 +56,7 @@
           <p>cost us 6 to 9 years</p>
         </div>
         <div>
-          <img src="{{ asset('/assets/homepage/Spaceship_Pixel.png') }}" class="relative w-16 rotate-[-69deg] xl:top-28 2xl:top-40 right-96 hidden md:block" />
+          <img src="{{ asset('/assets/homepage/Spaceship_Pixel.png') }}" class="relative w-16 rotate-[-69deg] md:top-24 right-96 hidden md:block" />
         </div>
         <div>
           <img src="{{ asset('/assets/homepage/Galaxy.gif') }}" class="relative -top-20 -left-20 w-96 rotate-12 hidden md:block" />
@@ -90,7 +90,7 @@
         <a href="https://www.instagram.com/telu.daskom/" target="_blank" class="m-4 w-10 hover:invert">
           <img src="{{ asset('/assets/homepage/instagram_pixel.png') }}" alt="Instagram" />
         </a>
-        <a href="#" target="_blank" class="m-4 w-10 hover:invert">
+        <a href="https://linevoom.line.me/user/_dbhqzOurXL1CbjNxhYBPzSbYBVWZFDnFa5_ashs" target="_blank" class="m-4 w-10 hover:invert">
           <img src="{{ asset('/assets/homepage/line_pixel.png') }}" alt="line" />
         </a>
         <a href="https://www.youtube.com/@DaskomTelU/" target="_blank" class="m-4 w-10 hover:invert">
@@ -102,6 +102,5 @@
       </div>
     </div>
     <script src="{{ asset('/js/welcome.js') }}"></script>
-    {{-- test --}}
   </body>
 </html>

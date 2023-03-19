@@ -22,11 +22,11 @@
                     <h1>WELCOME ADVENTURER</h1>
                 </div>
 
-                <form method="post" class="flex flex-col items-center justify-between font-arcade text-white text-2xl h-60">
+                <form action="/loginAdminPost" method="post" class="flex flex-col items-center justify-between font-arcade text-white text-2xl h-60">
                     @csrf
                     <input type="text" name="ascod" placeholder="KODE ASISTEN" class="w-64 h-16 bg-transparent text-center shadow-semi-sm shadow-white rounded-lg duration-200 hover:shadow-semi-sm hover:shadow-dark-sun active:shadow-semi-sm active:shadow-bright-sun">
                     <input type="password" name="password" placeholder="PASSWORD" class="w-64 h-16 bg-transparent text-center shadow-semi-sm shadow-white rounded-lg duration-200 hover:shadow-semi-sm hover:shadow-dark-sun active:active:shadow-bright-sun">
-                  
+
                     <button type="submit" class="w-32 h-12 bg-dark-sky text-center shadow-semi-sm shadow-white rounded-lg duration-200 hover:shadow-semi-sm hover:shadow-dark-sun hover:bg-deep-sky active:shadow-semi-sm active:shadow-bright-sun">
                         <h1 class="triangle flex justify-center items-center h-12 hover:text-3xl active:text-2xl">▶</h1>
                     </button>

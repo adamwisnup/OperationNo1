@@ -8,10 +8,10 @@ module.exports = {
         "dark-space": "url('/public/assets/Space_Background.png')",
       },
       boxShadow: {
-        "semi-sm": "0px 0px 8px 2px rgba(0, 0, 0, 0.3)", //use in homepage (login button)
+        "semi-sm": "0px 0px 8px 2px rgba(0, 0, 0, 0.3)",
         "in-semi-sm": "inset 0px 0px 8px 2px rgba(0, 0, 0, 0.3)",
         "semi-lg": "0px 0px 50px 1px rgba(0, 0, 0, 0.3)",
-        "semi-xl": "0px 0px 10px 1px rgba(0, 0, 0, 0.3)", //use in seidebar
+        "semi-xl": "0px 0px 10px 1px rgba(0, 0, 0, 0.3)",
       },
       fontFamily: {
         arcade: ['"Arcade Classic"'],
@@ -26,6 +26,7 @@ module.exports = {
         117: "27rem",
         120: "28rem",
         130: "36rem",
+        140: "40rem",
         170: "50rem",
       },
       height: {

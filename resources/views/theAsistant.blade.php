@@ -13,16 +13,17 @@
 
         @include('partials.sidebarCaas')
 
+
       <div class="center">
-        <div class="flex justify-center pt-24">
-            <div class="static flex justify-center pt-12 rounded-lg w-56 h-96 md:w-112 md:h-120 bg-dark-sky shadow-semi-lg shadow-yellow-300 text-white align-middle">
+        <div class="flex justify-center pt-16">
+            <div class="flex justify-center pt-8 rounded-lg w-56 h-96 md:w-112 md:h-120 bg-dark-sky shadow-semi-sm shadow-yellow-300 text-white align-middle">
                 @foreach ($asisstant as $as)
               <div>
               <div class="flex justify-center">
-                <img class="w-24 md:w-48 rounded-lg absolute top-12" src="assets/assistants/{{ $as->ascod }}.JPG" />
+                <img class="w-24 md:w-44 rounded-lg md:top-12" src="assets/assistants/{{ $as->ascod }}.JPG" />
               </div>
               <div>
-                <div class="pt-36 mx-7">
+                <div class=" mx-7">
                     <div class="my-5 shadow-md">
                       <p class="text-center font-arcade text-sm md:text-xl">{{ $as->name }}</p>
                     </div>
@@ -43,21 +44,16 @@
                     </div>
               </div>
                 @endforeach
-
             </div>
-
         </div>
           </div>
         </div>
       </div>
 
-      <button type="submit" class="fixed w-12 top-64 right-44 h-12 bg-dark-sky text-center shadow-in-semi-sm shadow-white rounded-lg duration-200 hover:shadow-semi-sm hover:shadow-dark-sun hover:bg-deep-sky active:shadow-in-semi-sm active:shadow-bright-sun">
-        <h1 class="triangle flex justify-center items-center h-[48px] hover:text-3xl active:text-2xl">▶</h1>
-      </button>
-      <button type="submit" class="fixed w-12 h-12 top-64 left-44 bg-dark-sky text-center shadow-in-semi-sm shadow-white rounded-lg duration-200 hover:shadow-semi-sm hover:shadow-dark-sun hover:bg-deep-sky active:shadow-in-semi-sm active:shadow-bright-sun">
-        <h1 class="triangle rotate-180 flex justify-center items-center h-[48px] hover:text-3xl active:text-2xl">▶</h1>
-      </button>
-      @include('partials.footer')
+      <div class="flex justify-center mt-4">
+        {{ $asisstant->links('vendor.pagination.default') }}
+      </div>
     </div>
+    @include('partials.footer')
   </body>
 </html>

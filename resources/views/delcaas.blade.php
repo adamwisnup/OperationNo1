@@ -48,20 +48,20 @@
         </div>
         <div class="text-dark bg-gray-700 text-center font-pixel text-2xl p-20 rounded-lg">
             <p class="px-10 text-white">Nama</p>
-            <img src="{{ asset('/assets/dasboardcaas/Underline_Dashed.png') }}" alt="" />
+            <img class="w-96" src="{{ asset('/assets/dasboardcaas/Underline_Dashed.png') }}" alt="" />
             <p class="px-10 mb-5">{{ $name }}</p>
             <p class="px-10 text-white">NIM</p>
-            <img src="{{ asset('/assets/dasboardcaas/Underline_Dashed.png') }}" alt="" />
+            <img class="w-96" src="{{ asset('/assets/dasboardcaas/Underline_Dashed.png') }}" alt="" />
             <p class="px-10 mb-5">{{ $nim }}</p>
             <p class="px-10 text-white">Status</p>
-            <img src="{{ asset('/assets/dasboardcaas/Underline_Dashed.png') }}" alt="" />
+            <img class="w-96" src="{{ asset('/assets/dasboardcaas/Underline_Dashed.png') }}" alt="" />
                 @if($isPass==1)
                 <p class="text-green-700 px-10 mb-5">Lolos</p>
                 @else
                 <p class="text-red-700 px-10 mb-5">Tidak lolos</p>
                 @endif
                 <p class="px-10 text-white">Tahap</p>
-                <img src="{{ asset('/assets/dasboardcaas/Underline_Dashed.png') }}" alt="" />
+                <img class="w-96" src="{{ asset('/assets/dasboardcaas/Underline_Dashed.png') }}" alt="" />
                 <p class="px-10">{{ $stagesname }}</p>
             </div>
         <div class="grid justify-items-center my-4">

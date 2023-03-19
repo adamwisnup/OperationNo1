@@ -77,7 +77,7 @@
                     <img src="{{ asset('assets/admin/radio-excluded-outline.png') }}" alt="close">
                 </button>
                 <h1 class="font-arcade mt-3 text-white text-4xl">Buat Shift baru</h1>
-                <form class="font-arcade text-white" method="POST" action="\addShift">
+                <form class="font-arcade text-white" method="POST" action="/addShift">
                     @csrf
                     <div class="text-lg">
                         <p class="py-1">Shift</p>
@@ -131,6 +131,36 @@
             </form>
         </div>
     </div>
+    {{-- Reset Plot --}}
+    <div class="fixed z-10 inset-0 overflow-y-auto top-15 hidden" id="popup-resetPlot">
+        <div class="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center">
+            <div class="fixed inset-0 transition-opacity">
+                <div class="absolute inset-0 bg-deep-sky opacity-75"></div>
+            </div>
+
+            <form class="inline-block bg-dream-dark border px-4 text-center overflow-hidden shadow-in-semi-sm shadow-white rounded-lg transform transition-all" role="dialog" method="POST" action="\resetPlot">
+                @csrf
+                <p class="text-white font-arcade text-xl pt-4">Apakah kamu yakin untuk mereset seluruh plot?</p>
+                <button type="submit" class="text-white font-arcade bg-red-700 shadow-in-semi-sm shadow-white rounded-lg py-2 px-4 m-4" >Reset plot</button>
+                <button type="button" class="text-white font-arcade bg-green-700 shadow-in-semi-sm shadow-white rounded-lg py-2 px-4 m-4" id="close-popupResetPlot">Batal</button>
+            </form>
+        </div>
+    </div>
+    {{-- Hapus Shift --}}
+    <div class="fixed z-10 inset-0 overflow-y-auto top-15 hidden" id="popup-deleteShift">
+        <div class="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center">
+            <div class="fixed inset-0 transition-opacity">
+                <div class="absolute inset-0 bg-deep-sky opacity-75"></div>
+            </div>
+
+            <form class="inline-block bg-dream-dark border px-4 text-center overflow-hidden shadow-in-semi-sm shadow-white rounded-lg transform transition-all" role="dialog" method="POST" action="\deleteAllShift">
+                @csrf
+                <p class="text-white font-arcade text-xl pt-4">Apakah kamu yakin untuk menghapus shift ini?</p>
+                <button type="submit" class="text-white font-arcade bg-red-700 shadow-in-semi-sm shadow-white rounded-lg py-2 px-4 m-4" >Hapus Shift</button>
+                <button type="button" class="text-white font-arcade bg-green-700 shadow-in-semi-sm shadow-white rounded-lg py-2 px-4 m-4" id="close-popupReset">Batal</button>
+            </form>
+        </div>
+    </div>
 
 
     <div class="flex justify-center mt-10">
@@ -141,10 +171,11 @@
                 <div class="flex text-white"><h1>TOTAL KUOTA : &nbsp</h1><h1 id="totalKuota">{{$totalquota}}</h1></div>
             </div>
             <!-- buttons -->
-            <div class="flex justify-between font-arcade text-lg w-[24rem]">
-                <button class="w-32 h-12 bg-green-700 shadow-in-semi-sm hover:shadow-semi-sm shadow-white hover:shadow-white rounded-lg text-green-200" id="tambah-popup"><h1>Tambah Shift</h1></button>
-                <button class="w-28 h-12 bg-red-700 shadow-in-semi-sm hover:shadow-semi-sm shadow-white hover:shadow-white rounded-lg text-red-200"><h1>Reset Plot</h1></button>
-                <button class="w-32 h-12 bg-red-700 shadow-in-semi-sm hover:shadow-semi-sm shadow-white hover:shadow-white rounded-lg text-red-200" id="reset-popup"><h1>Reset Shift</h1></button>
+            <div class="flex justify-between font-arcade text-sm w-140">
+                <a href="/resultPlot"><button class="mx-1 px-2 w-24 h-12 bg-green-700 shadow-in-semi-sm hover:shadow-semi-sm shadow-white hover:shadow-white rounded-lg text-green-200"><h1>Lihat Plottingan</h1></button></a>
+                <button class="mx-1 px-2 w-24 h-12 bg-green-700 shadow-in-semi-sm hover:shadow-semi-sm shadow-white hover:shadow-white rounded-lg text-green-200" id="tambah-popup"><h1>Tambah Shift</h1></button>
+                <button class="mx-1 px-2 w-24 h-12 bg-red-700 shadow-in-semi-sm hover:shadow-semi-sm shadow-white hover:shadow-white rounded-lg text-red-200" id="resetPlot-popup"><h1>Reset Plot</h1></button>
+                <button class="mx-1 px-2 w-24 h-12 bg-red-700 shadow-in-semi-sm hover:shadow-semi-sm shadow-white hover:shadow-white rounded-lg text-red-200" id="reset-popup"><h1>Reset Shift</h1></button>
             </div>
         </div>
     </div>
@@ -162,19 +193,29 @@
             <?php $no = 1;?>
             @foreach($shift as $s)
             <tr class="text-dream-dark text-center">
-              <td class="border border-[#00111E] px-2">{{$no++}}</td>
-              <td class="border border-[#00111E] px-10">{{$s->shiftname}}</td>
-              <td class="border border-[#00111E] px-10">{{$s->day}}</td>
-              <td class="border border-[#00111E] px-10">{{$s->time_start}} - {{$s->time_end}}</td>
-              <td class="text-[#426006] border border-[#00111E] px-10">{{$s->quota}}</td>
-              <td class="border border-[#00111E] px-10">
-                <a href="/EditShift/{{$s->id}}"><button class="duration-200 hover:underline active:text-[#00111e6b]" id="#editShift-popup"><h1>Edit</h1></button></a>
-                <a href="/deleteShiftconfirm/{{$s->id}}"><button class="duration-200 hover:underline active:text-[#00111e6b]"><h1>Hapus</h1></button></a>
+              <td class="border border-dream-dark px-2">{{$no++}}</td>
+              <td class="border border-dream-dark px-10">{{$s->shiftname}}</td>
+              <td class="border border-dream-dark px-10">{{$s->day}}</td>
+              <td class="border border-dream-dark px-10">{{$s->time_start}} - {{$s->time_end}}</td>
+              <td class="text-green-700 border border-dream-dark px-10">{{$s->quota}}</td>
+              <td class="border border-dream-dark px-10">
+                <a href="/EditShift/{{$s->id}}">
+                    <button class="duration-200 hover:underline active:text-dream-dark">
+                        <h1>Edit</h1>
+                    </button>
+                </a>
+                <form action="/deleteShift/{{$s->id}}" method="post">
+                    @csrf
+                    <a>
+                        <button type="submit" class="duration-200 hover:underline active:text-dream-dark" id="#deleteShift-popup">
+                        <h1>Hapus</h1>
+                    </button>
+                    </a>
+                </form>
               </td>
             </tr>
             @endforeach
         </table>
-        @include('partials.footer')
     </div>
     <script src="{{ asset('/js/popup.js') }}"></script>
 </body>
