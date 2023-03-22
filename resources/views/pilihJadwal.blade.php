@@ -13,7 +13,7 @@
         @include('partials.sidebarCaas')
 
       <div class="flex flex-col justify-around items-center h-3/5">
-        <div class="pt-28 w-56 md:w-full">
+        <div class="pt-28">
           <h1 class="font-arcade text-white text-center text-3xl md:text-5xl">PILIH JADWAL REKRUTMEN</h1>
           <p class="font-pixel text-white text-center text-lg md:text-xl">Jadwal tidak bisa diganti ketika sudah diplih.</p>
           <p class="font-pixel text-white text-center text-lg md:text-xl">Pastikan yakin dengan jadwal yang dipilih.</p>
