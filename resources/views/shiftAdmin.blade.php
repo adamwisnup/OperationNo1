@@ -168,7 +168,7 @@
             <!-- Stats -->
             <div class="flex flex-col font-arcade text-xl w-2/5 text-white">
                 <div class="flex text-white"><h1>TOTAL SHIFT : &nbsp</h1><h1 id="totalShift">{{$countshift}}</h1></div>
-                <div class="flex text-white"><h1>TOTAL KUOTA : &nbsp</h1><h1 id="totalKuota">{{$totalquota}}</h1></div>
+                <div class="flex text-white"><h1>TOTAL KUOTA : &nbsp</h1><h1 id="totalKuota">{{$totalquota-($countshift*1)}}</h1></div>
             </div>
             <!-- buttons -->
             <div class="flex justify-between font-arcade text-sm w-140">
@@ -197,7 +197,7 @@
               <td class="border border-dream-dark px-10">{{$s->shiftname}}</td>
               <td class="border border-dream-dark px-10">{{$s->day}}</td>
               <td class="border border-dream-dark px-10">{{$s->time_start}} - {{$s->time_end}}</td>
-              <td class="text-green-700 border border-dream-dark px-10">{{$s->quota}}</td>
+              <td class="text-green-700 border border-dream-dark px-10">{{$s->quota-1}}</td>
               <td class="border border-dream-dark px-10">
                 <a href="/EditShift/{{$s->id}}">
                     <button class="duration-200 hover:underline active:text-dream-dark">

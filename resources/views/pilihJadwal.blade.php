@@ -40,8 +40,8 @@
                     <th class="border border-dark-sky px-2">{{$s->shiftname}}</th>
                     <th class="border border-dark-sky px-2">{{$s->day}}</th>
                     <th class="border border-dark-sky px-2">{{$s->time_start}} - {{$s->time_end}}</th>
-                    @if ($s->quota> 0)
-                        <th class="text-green-700 border border-dark-sky px-2 ">{{$s->quota - $quotaremain}}</th>
+                    @if ($s->quota> 1)
+                        <th class="text-green-700 border border-dark-sky px-2 ">{{$s->quota - $quotaremain-1}}</th>
                         <th class="border border-dark-sky px-2">
                             <a href="/takeplot/{{ $s->id }}">
                                 <button class="bg-dark-sky hover:bg-green-400 rounded-md text-white hover:text-green-800 px-2 border border-gray-500 m-1" id="#pilih-popup">Pilih</button>
