@@ -18,9 +18,9 @@
         <div class="flex justify-items my-4">
             <form class="font-arcade text-white" method="POST" action="/fixtakePlot/{{ $shift->id }}">
                 @csrf
-                <button type="button-submit" method="POST" class="bg-green-700 hover:bg-green-800 rounded-lg w-32 py-2 px-4 m-4">Pilih Shift</button>
+                <button type="button-submit" method="POST" class="bg-green-700 hover:bg-green-800 shadow-semi-sm shadow-white hover:shadow-in-semi-sm hover:shadow-white rounded-lg w-32 py-2 px-4 m-4">Pilih Shift</button>
             </form>
-            <a href="/listplot"><button class="font-arcade text-white bg-red-700 hover:bg-red-800 rounded-lg w-32 py-2 px-4 m-4">Kembali</button></a>
+            <a href="/listplot"><button class="font-arcade text-white bg-red-700 hover:bg-red-800 shadow-semi-sm shadow-white hover:shadow-in-semi-sm hover:shadow-white rounded-lg w-32 py-2 px-4 m-4">Kembali</button></a>
         </div>
     @include('partials.footer')
 </body>
