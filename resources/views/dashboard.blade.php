@@ -11,7 +11,7 @@
   <body class="bg-dark-space bg-black bg-cover cursor-space-ship">
     @include('partials.sidebarCaas')
     <div class="h-screen w-screen flex flex-col items-center">
-        <div class="flex justify-items pt-16">
+        <div class="flex justify-items pt-14">
             <div class="flex justify-center pt-12 rounded-lg w-64 h-120 md:w-115 md:h-124 bg-dark-sky shadow-semi-lg shadow-yellow-300 text-white align-middle">
               <div>
                 <div class="flex justify-center">

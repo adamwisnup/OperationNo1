@@ -73,7 +73,7 @@
                         <td class="border border-white px-2">{{ $p->shiftname }}</td>
                         <td class="border border-white px-2">{{ \Carbon\Carbon::parse($p->day)->isoFormat('dddd, D MMMM Y') }}</td>
                         <td class="border border-white px-2">{{ $p->time_start }} - {{ $p->time_end }} WIB</td>
-                        <td class="border border-white px-2">{{ $p->quota }}</td>
+                        <td class="border border-white px-2">{{ $p->quota-1 }}</td>
 
                         <td class="border border-white px-2">
                         @foreach($plot as $a)
