@@ -154,7 +154,11 @@ class CaasController extends Controller
                 ->leftjoin('stages','stages.id','=','statuses.stages_id')
                 ->where('statuses.isPass',1)->count();
     $countcaasnotlolos = $countcaas-$countcaaslolos;
-    return view('findDataCaas',compact('datacaas','countcaas','countcaaslolos','countcaasnotlolos'));
+    if(isset($datacaas)){
+        return view('findDataCaas',compact('datacaas','countcaas','countcaaslolos','countcaasnotlolos'));
+    } else {
+        return redirect('caasAccount')->withErrors('NIM yang dicari tidak ada');
+    }
  }
 
     public function del($datacaas_id){

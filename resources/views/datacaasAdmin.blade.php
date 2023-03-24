@@ -120,6 +120,11 @@
                   <button type="submit" class="bg-green-700 hover:bg-green-800 rounded-lg py-2 px-4 m-4">Cari</button>
             </form>
         </div>
+        @foreach ($errors->all() as $error)
+
+        <div class="flex justify-around w-full font-arcade text-red-700 text-xl">{{ $error }}</div>
+
+        @endforeach
         <!-- table of caas -->
 
         <table class="shadow-lg bg-white border-collapse font-pixel mt-4 mb-8">
