@@ -339,7 +339,6 @@ Route::get('takeplot/{id}', function($id){
 Route::post('/AddCaas', [CaasController::class,'add'])->name('Addcaas')->middleware('auth:admin');
 Route::get('/EditCaasAccount/{datacaas_id}', [CaasController::class,'edit'])->name('EditCaasAccount')->middleware('auth:admin');
 Route::post('/UpdateCaasAccount/{datacaas_id}', [CaasController::class,'update'])->name('UpdateCaasAccount')->middleware('auth:admin');
-Route::get('/CariNIM', [CaasController::class,'cari'])->name('cari')->middleware('auth:admin');
 Route::get('/delcaasconfirm/{datacaas_id}', [CaasController::class,'delconfirm'])->name('delconfirm')->middleware('auth:admin');
 Route::post('/delcaas/{datacaas_id}', [CaasController::class,'del'])->name('delcaas')->middleware('auth:admin');
 
