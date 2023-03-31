@@ -18,7 +18,9 @@
           <p class="font-pixel text-white text-center text-base md:text-xl">Jadwal tidak bisa diganti ketika sudah diplih.</p>
           <p class="font-pixel text-white text-center text-base md:text-xl">Pastikan yakin dengan jadwal yang dipilih.</p>
         </div>
-
+        <div class="flex justify-center mt-4">
+            {{ $shift ->links('vendor.pagination.default') }}
+        </div>
         <div class="flex justify-center font-arcade tracking-wide pt-12 w-48 md:w-130">
           <table class="table-auto shadow-semi-sm shadow-white text-xs md:text-base">
             <thead>
