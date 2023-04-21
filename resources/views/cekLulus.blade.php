@@ -33,7 +33,7 @@
                         <p class="text-sm md:text-base">Silahkan Join Grup dengan mengklik atau memindai QR di bawah</p>
 
                             <a href="https://line.me/R/ti/g/YPtYt7v1Db" target="_blank" class="flex justify-center mt-2">
-                                <img src="assets/14915.jpg" class="h-40 rounded-xl" alt="QR">
+                                <img src="assets/14915.jpg" class="h-40 rounded-xl m-2" alt="QR">
                             </a>
                         @else
                         <p>Maaf ya kamu harus berhenti di tahap {{ $stagesname }}. Jangan menyerah ya, tetaplah semangat, jadikan ini sebagai pembelajaran untuk kedepanya.</p>
