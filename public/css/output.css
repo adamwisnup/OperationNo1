@@ -767,10 +767,6 @@ video {
   margin-top: 2rem;
 }
 
-.block {
-  display: block;
-}
-
 .inline-block {
   display: inline-block;
 }
@@ -815,10 +811,6 @@ video {
   height: 4rem;
 }
 
-.h-24 {
-  height: 6rem;
-}
-
 .h-3\/5 {
   height: 60%;
 }
@@ -829,6 +821,10 @@ video {
 
 .h-4\/5 {
   height: 80%;
+}
+
+.h-40 {
+  height: 10rem;
 }
 
 .h-48 {
@@ -1979,10 +1975,6 @@ body {
     display: block;
   }
 
-  .md\:hidden {
-    display: none;
-  }
-
   .md\:h-10 {
     height: 2.5rem;
   }
@@ -1993,10 +1985,6 @@ body {
 
   .md\:h-124 {
     height: 33rem;
-  }
-
-  .md\:h-40 {
-    height: 10rem;
   }
 
   .md\:w-1\/2 {

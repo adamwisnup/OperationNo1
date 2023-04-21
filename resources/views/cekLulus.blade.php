@@ -12,7 +12,7 @@
     <div>
         @include('partials.sidebarCaas')
         <div class="flex justify-center pt-20">
-            <div class="flex justify-center pt-14 rounded-lg w-64 md:w-130 h-120 bg-dark-sky shadow-semi-lg shadow-yellow-300 text-white align-middle">
+            <div class="flex justify-center pt-14 rounded-lg w-64 md:w-130 h-127 md:h-120 bg-dark-sky shadow-semi-lg shadow-yellow-300 text-white align-middle">
               <div>
                 <div>
                   <div class="mt-5">
@@ -29,15 +29,11 @@
                     <div class="font-pixel text-lg text-center mx-8">
                         @if($Active == 1)
                         @if ($isPass==1)
-                        <p>Selamat kamu lulus tahap {{ $stagesname }}</p>
-                        <p>Silahkan Join Grup dengan mengklik atau memindai QR di bawah</p>
-
-                            {{-- <a href="https://line.me/R/ti/g/YPtYt7v1Db" target="_blank" class="flex justify-center p-4 text-sm" >
-                                <p class="block md:hidden">https://line.me/R/ti/g/YPtYt7v1Db</p>
-                            </a> --}}
+                        <p class="text-sm md:text-base">Selamat kamu lulus tahap {{ $stagesname }}</p>
+                        <p class="text-sm md:text-base">Silahkan Join Grup dengan mengklik atau memindai QR di bawah</p>
 
                             <a href="https://line.me/R/ti/g/YPtYt7v1Db" target="_blank" class="flex justify-center mt-2">
-                                <img src="assets/14915.jpg" class="h-24 md:h-40 rounded-xl" alt="QR">
+                                <img src="assets/14915.jpg" class="h-40 rounded-xl" alt="QR">
                             </a>
                         @else
                         <p>Maaf ya kamu harus berhenti di tahap {{ $stagesname }}. Jangan menyerah ya, tetaplah semangat, jadikan ini sebagai pembelajaran untuk kedepanya.</p>
