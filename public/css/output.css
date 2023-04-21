@@ -815,8 +815,8 @@ video {
   height: 4rem;
 }
 
-.h-24 {
-  height: 6rem;
+.h-28 {
+  height: 7rem;
 }
 
 .h-3\/5 {
@@ -861,10 +861,6 @@ video {
 
 .h-screen {
   height: 100vh;
-}
-
-.h-40 {
-  height: 10rem;
 }
 
 .min-h-screen {
@@ -1997,6 +1993,10 @@ body {
 
   .md\:h-124 {
     height: 33rem;
+  }
+
+  .md\:h-40 {
+    height: 10rem;
   }
 
   .md\:w-1\/2 {
