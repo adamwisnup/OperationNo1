@@ -12,7 +12,7 @@
     <div>
         @include('partials.sidebarCaas')
         <div class="flex justify-center pt-20">
-            <div class="flex justify-center pt-14 rounded-lg w-64 md:w-130 h-127 md:h-120 bg-dark-sky shadow-semi-lg shadow-yellow-300 text-white align-middle">
+            <div class="flex justify-center pt-14 rounded-lg w-64 md:w-130 h-124 md:h-120 bg-dark-sky shadow-semi-lg shadow-yellow-300 text-white align-middle">
               <div>
                 <div>
                   <div class="mt-5">
