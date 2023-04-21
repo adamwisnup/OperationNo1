@@ -51,6 +51,9 @@
                 </a>
             </div>
             @endif
+                 <div class="flex justify-center mt-4">
+                    {{ $shift->links('vendor.pagination.default') }}
+                </div>
             </div>
             @if($countshift!=0)
             <div class="flex justify-center font-arcade tracking-wide pt-4">

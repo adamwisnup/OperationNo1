@@ -26,20 +26,21 @@
                             Tahap Sedang Berlangsung!!!
                         @endif
                     </h1>
-                        <div class="font-pixel text-lg text-center mx-8">
+                    <div class="font-pixel text-lg text-center mx-8">
                         @if($Active == 1)
                         @if ($isPass==1)
-                        <p>Selamat kamu lulus tahap {{ $stagesname }}, Silahkan pantau terus OA DLOR & Grup Caas!</p>
-                        <p>Dan jangan lupa tetap semangat!</p>
-                        <br/>
-                            <a href="https://line.me/ti/g/fX33LMaci4" target="_blank" class="flex justify-center p-4 md:hidden" >
-                                <p class="w-48 h-10 flex items-center justify-center bg-[#00172B] font-arcade text-center text-white shadow-[inset_0px_0px_8px_2px_#FFFFFF] rounded-[8px] duration-200 hover:shadow-[inset_0px_0px_8px_2px_#f3964a] active:shadow-[inset_0px_0px_8px_2px_#ffd0a9]">Grup Caas</p>
+                        <p>Selamat kamu lulus tahap {{ $stagesname }}</p>
+                        <p>Silahkan Join Grup dengan mengklik atau memindai QR di bawah</p>
+
+                            {{-- <a href="https://line.me/R/ti/g/YPtYt7v1Db" target="_blank" class="flex justify-center p-4 text-sm" >
+                                <p class="block md:hidden">https://line.me/R/ti/g/YPtYt7v1Db</p>
+                            </a> --}}
+
+                            <a href="https://line.me/R/ti/g/YPtYt7v1Db" target="_blank" class="flex justify-center mt-2">
+                                <img src="assets/14915.jpg" class="h-40 rounded-xl" alt="QR">
                             </a>
-                            <div class="flex justify-center">
-                                <img src="assets/Linkgrup.png" class="h-48 rounded-xl hidden md:block" alt="QR">
-                            </div>
                         @else
-                        <p>Maaf ya kamu harus berherhenti di tahap {{ $stagesname }}. Jangan menyerah ya, tetaplah semangat, jadikan ini sebagai pembelajaran untuk kedepanya.</p>
+                        <p>Maaf ya kamu harus berhenti di tahap {{ $stagesname }}. Jangan menyerah ya, tetaplah semangat, jadikan ini sebagai pembelajaran untuk kedepanya.</p>
                         <br/>
                         <br/>
                         <br/>
@@ -49,7 +50,7 @@
                             Tahap Sedang Berlangsung, silakan pantau pengumuman selanjutnya!!!
                         @endif
 
-                        </div>
+                    </div>
                   </div>
                 </div>
               </div>

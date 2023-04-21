@@ -26,6 +26,7 @@
                     <img src="{{ asset('assets/admin/radio-excluded-outline.png') }}" alt="close">
                 </button>
                 <h1 class="font-arcade mt-3 text-white text-4xl">Buat Shift baru</h1>
+                
                 <form class="font-arcade text-white" method="POST" action="\addShift">
                     @csrf
                     <div class="text-lg">
@@ -179,6 +180,7 @@
             </div>
         </div>
     </div>
+    
     <!-- table of caas -->
     <div class="flex justify-center mt-2">
         <table class="shadow-lg bg-white border-collapse font-arcade">
@@ -216,7 +218,11 @@
             </tr>
             @endforeach
         </table>
+
     </div>
+            <div class="flex justify-center mt-4">
+            {{ $shift->links('vendor.pagination.default') }}
+        </div>
     <script src="{{ asset('/js/popup.js') }}"></script>
 </body>
 </html>
