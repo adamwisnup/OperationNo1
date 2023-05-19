@@ -30,11 +30,12 @@
                         @if($Active == 1)
                         @if ($isPass==1)
                         <p class="text-sm md:text-base">Selamat kamu lulus tahap {{ $stagesname }}</p>
-                        <p class="text-sm md:text-base">Silahkan Join Grup dengan mengklik atau memindai QR di bawah</p>
+                        <p class="text-sm md:text-base">Informasi selanjutnya akan disampaikan melalui OA Line DLOR 2023</p>
+                        {{-- <p class="text-sm md:text-base">Silahkan Join Grup dengan mengklik atau memindai QR di bawah</p>
 
                             <a href="https://line.me/ti/g/tuxprZuMP0" target="_blank" class="flex justify-center mt-2">
                                 <img src="assets/S__7856149.jpg" class="h-40 rounded-xl m-2" alt="QR">
-                            </a>
+                            </a> --}}
                         @else
                         <p>Maaf ya kamu harus berhenti di tahap {{ $stagesname }}. Jangan menyerah ya, tetaplah semangat, jadikan ini sebagai pembelajaran untuk kedepanya.</p>
                         <br/>
