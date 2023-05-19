@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Explore the Milky Way</title>
-    @vite('public/css/output.css')
+    <link rel="stylesheet" type="text/css" href="{{ asset('/css/output.css') }}">
     <link rel="icon" type="DLOR" href="{{ asset('/assets/homepage/DLOR_2023.svg') }}" />
  </head>
  <body class="bg-dark-space bg-black bg-cover cursor-space-ship">
@@ -15,13 +15,13 @@
 <div class="mx-3 mt-10 bg-deep-sky rounded-xl shadow-semi-sm shadow-dark-sun">
     <div class="pt-5 flex justify-center text-center font-arcade text-white text-2xl">
         <div>
-          <div class="">
+          <div>
             <p>Hasil Plot Daskom Laboratory Open Recruitment</p>
           </div>
-          <div class="">
+          <div>
             <p>Total Jadwal : {{$countshift}}</p>
           </div>
-          <p class="">
+          <p>
             <span>Total Caas Sudah pilih jadwal : {{$plot->count()}}</span>
           </p>
         </div>
@@ -51,6 +51,9 @@
                 </a>
             </div>
             @endif
+                 <div class="flex justify-center mt-4">
+                    {{ $shift->links('vendor.pagination.default') }}
+                </div>
             </div>
             @if($countshift!=0)
             <div class="flex justify-center font-arcade tracking-wide pt-4">
@@ -73,7 +76,7 @@
                         <td class="border border-white px-2">{{ $p->shiftname }}</td>
                         <td class="border border-white px-2">{{ \Carbon\Carbon::parse($p->day)->isoFormat('dddd, D MMMM Y') }}</td>
                         <td class="border border-white px-2">{{ $p->time_start }} - {{ $p->time_end }} WIB</td>
-                        <td class="border border-white px-2">{{ $p->quota }}</td>
+                        <td class="border border-white px-2">{{ $p->quota-1 }}</td>
 
                         <td class="border border-white px-2">
                         @foreach($plot as $a)
@@ -90,10 +93,7 @@
                     @endforeach
                 </tbody>
             </table>
-            {{-- <div class="d-flex justify-content-center">
-              <div class="">{{ $shift->links('pagination::pagination') }}</div>
-              </div>
-          </div> --}}
+
             @else
             <div class="text-center text-nim-head">
               <span>Belum ada Jadwal yang dibuat</span>

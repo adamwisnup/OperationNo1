@@ -49,7 +49,7 @@ Route::get('/changepass', function(){
 
 Route::post('/submitnewpass', [CaasController::class, 'changepass'])->name('submitnewpass')->middleware('auth:datacaas');
 
-Route::post('/loginCaas', [CaasController::class, 'login'])->name('loginCaas');
+Route::post('/loginCaasPost', [CaasController::class, 'login'])->name('loginCaasPost');
 
 Route::get('/logoutCaas', [CaasController::class,'logout'])->name('logoutCaas');
 
@@ -232,7 +232,7 @@ Route::get('/resultPlot', function () {
     \Carbon\Carbon::setLocale('id');
     $plot = Plots::leftjoin('shifts', 'shifts.id', '=', 'plots.shifts_id')
         ->leftjoin('datacaas', 'datacaas.id', '=', 'plots.datacaas_id')->get();
-    return view('resultplot', ['shift' => $shift, 'stagesname' => $stagesname, 'passcheck' => $passcheck, 'countshift' => $countshift, 'caas' => $datacaas, 'plot' => $plot]);
+    return view('resultPlot', ['shift' => $shift, 'stagesname' => $stagesname, 'passcheck' => $passcheck, 'countshift' => $countshift, 'caas' => $datacaas, 'plot' => $plot]);
 })->name('resultPlot')->middleware('auth:admin');
 
 Route::get('/listplot', function () {
@@ -330,25 +330,15 @@ Route::post('/resetPlot', function () {
     return redirect('ListShift');
 })->name('resetPlot')->middleware('auth:admin');
 
-Route::post('takeplot/{id}', [PlotController::class, 'takePlot'])->name('takePlot')->middleware('auth:datacaas');
+Route::get('takeplot/{id}', function($id){
+    $shift = Shifts::find($id);
+    return view('pilihJadwalConfirm', compact('shift'));
+})->name('takePlot')->middleware('auth:datacaas');
 
 //Add Caas
-// Route::post('/AddStatus', function (){
-//     $caas_id = DataCaas::latest()->first();
-//     $stages = Stages::get();
-
-//     Statuses::create([
-//         'datacaas_id'=>$caas_id->id,
-//         'stages_id'=>$stages->id,
-//         'isPass'=>$request->isPass,
-//     ]);
-//     return redirect('caasAccount');
-
-// })->name('AddStatus')->middleware('auth:admin');
 Route::post('/AddCaas', [CaasController::class,'add'])->name('Addcaas')->middleware('auth:admin');
 Route::get('/EditCaasAccount/{datacaas_id}', [CaasController::class,'edit'])->name('EditCaasAccount')->middleware('auth:admin');
 Route::post('/UpdateCaasAccount/{datacaas_id}', [CaasController::class,'update'])->name('UpdateCaasAccount')->middleware('auth:admin');
-Route::get('/CariNIM', [CaasController::class,'cari'])->name('cari')->middleware('auth:admin');
 Route::get('/delcaasconfirm/{datacaas_id}', [CaasController::class,'delconfirm'])->name('delconfirm')->middleware('auth:admin');
 Route::post('/delcaas/{datacaas_id}', [CaasController::class,'del'])->name('delcaas')->middleware('auth:admin');
 

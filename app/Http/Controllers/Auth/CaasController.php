@@ -36,18 +36,9 @@ class CaasController extends Controller
 
     public function home(){
         $id = Auth::id();
-        // $plotactive = DataCaas::where('datacaas.id',$id)
-		// 			->leftjoin('plotactives','datacaas.id','=','plotactives.datacaas_id')
-		// 			->first();
         $title = 'Dashboard';
-		// $caas = DataCaas::where('datacaas.id',$id)
-		// 			->leftjoin('statuses','datacaas.id','=','statuses.datacaas_id')
-		// 			->leftjoin('stages','stages.id','=','statuses.stages_id')
-		// 			->first();
         $datacaas = DataCaas::where('id', $id)->first();
         $photo = $datacaas->photo;
-        // dd($photo);
-        // die;
 
         return view('dashboard', ['datacaas' => $datacaas, 'title' => $title, 'photo'=>$photo]); // disesuaikan sama nama bladenya
     }
@@ -163,7 +154,11 @@ class CaasController extends Controller
                 ->leftjoin('stages','stages.id','=','statuses.stages_id')
                 ->where('statuses.isPass',1)->count();
     $countcaasnotlolos = $countcaas-$countcaaslolos;
-    return view('findDataCaas',compact('datacaas','countcaas','countcaaslolos','countcaasnotlolos'));
+    if(isset($datacaas)){
+        return view('findDataCaas',compact('datacaas','countcaas','countcaaslolos','countcaasnotlolos'));
+    } else {
+        return redirect('caasAccount')->withErrors('NIM yang dicari tidak ada');
+    }
  }
 
     public function del($datacaas_id){

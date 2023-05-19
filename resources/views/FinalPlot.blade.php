@@ -5,14 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Explore the Milky Way</title>
-    @vite('public/css/output.css')
+    <link rel="stylesheet" type="text/css" href="{{ asset('/css/output.css') }}">
     <link rel="icon" type="DLOR" href="{{ asset('/assets/favicon.ico') }}" />
  </head>
  <body class="bg-dark-space bg-black bg-cover cursor-space-ship">
   <section>
-    <div class="pt-32">
+    <div class="pt-14 md:pt-32">
       <div class="flex justify-center font-arcade text-xl">
-        <div class="bg-dark-sky text-white p-4 rounded-lg shadow-semi-lg shadow-bright-sun">
+        <div class="bg-dark-sky text-white p-4 mx-3 rounded-lg shadow-semi-lg shadow-bright-sun">
           <div class="text-center pt-4">
             <span>JADWAL RECRUITMENT</span>
           </div>

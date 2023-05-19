@@ -9,7 +9,7 @@
         @endif
     </span>
 
-    <span class="text-center sm:block mx-3 w-24  py-1 bg-deep-sky hover:bg-gray-700 font-pixel rounded border-gray-300 rounded  text-white shadow-in-semi-sm shadow-white hover:shadow-semi-sm hover:shadow-bright-sun">
+    <span class="text-center sm:block mx-3 w-24  py-1 bg-deep-sky hover:bg-gray-700 font-pixel rounded border-gray-300  text-white shadow-in-semi-sm shadow-white hover:shadow-semi-sm hover:shadow-bright-sun">
         @if ($paginator->hasMorePages())
             <a href="{{ $paginator->nextPageUrl() }}" class="px-4 py-4" rel="next" aria-label="{{ ('next') }}">{{ ('Next') }}</a>
         @else

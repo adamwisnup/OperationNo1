@@ -5,14 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Explore the Milky Way</title>
-    @vite('public/css/output.css')
+    <link rel="stylesheet" type="text/css" href="{{ asset('/css/output.css') }}">
     <link rel="icon" type="DLOR" href="{{ asset('/assets/homepage/DLOR_2023.svg') }}" />
  </head>
   <body class="bg-dark-space bg-black bg-cover cursor-space-ship">
-    <div class="container">
+    <div>
         @include('partials.sidebarCaas')
         <div class="flex justify-center pt-20">
-            <div class="flex justify-center pt-14 rounded-lg w-64 md:w-130 h-118 bg-dark-sky shadow-semi-lg shadow-yellow-300 text-white align-middle">
+            <div class="flex justify-center pt-14 rounded-lg w-64 md:w-130 h-124 md:h-120 bg-dark-sky shadow-semi-lg shadow-yellow-300 text-white align-middle">
               <div>
                 <div>
                   <div class="mt-5">
@@ -26,15 +26,17 @@
                             Tahap Sedang Berlangsung!!!
                         @endif
                     </h1>
-                        <div class="font-pixel text-lg text-center mx-8">
+                    <div class="font-pixel text-lg text-center mx-8">
                         @if($Active == 1)
                         @if ($isPass==1)
-                        <p>Selamat kamu lulus tahap {{ $stagesname }}, Silahkan pantau terus OA DLOR & Grup Caas!</p>
-                        <p>Dan jangan lupa tetap semangat!</p>
-                        <br/>
-                        <P>Explore the Milky Way</P>
+                        <p class="text-sm md:text-base">Selamat kamu lulus tahap {{ $stagesname }}</p>
+                        <p class="text-sm md:text-base">Silahkan Join Grup dengan mengklik atau memindai QR di bawah</p>
+
+                            <a href="https://line.me/ti/g/tuxprZuMP0" target="_blank" class="flex justify-center mt-2">
+                                <img src="assets/S__7856149.jpg" class="h-40 rounded-xl m-2" alt="QR">
+                            </a>
                         @else
-                        <p>Maaf ya kamu harus berherhenti di tahap {{ $stagesname }}. Jangan menyerah ya, tetaplah semangat, jadikan ini sebagai pembelajaran untuk kedepanya.</p>
+                        <p>Maaf ya kamu harus berhenti di tahap {{ $stagesname }}. Jangan menyerah ya, tetaplah semangat, jadikan ini sebagai pembelajaran untuk kedepanya.</p>
                         <br/>
                         <br/>
                         <br/>
@@ -44,7 +46,7 @@
                             Tahap Sedang Berlangsung, silakan pantau pengumuman selanjutnya!!!
                         @endif
 
-                        </div>
+                    </div>
                   </div>
                 </div>
               </div>

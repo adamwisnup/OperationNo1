@@ -57,12 +57,5 @@ class StatusesSeeder extends Seeder
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'),
         ]);
-        DB::table('statuses')->insert([
-            'isPass' => 1,
-            'datacaas_id' =>8,
-            'stages_id' =>1,
-            'created_at' => date('Y-m-d H:i:s'),
-            'updated_at' => date('Y-m-d H:i:s'),
-        ]);
     }
 }

@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Explore the Milky Way</title>
-    @vite('public/css/output.css')
+    <link rel="stylesheet" type="text/css" href="{{ asset('/css/output.css') }}">
     <link rel="icon" type="DLOR" href="{{ asset('/assets/homepage/DLOR_2023.svg') }}" />
 </head>
 
@@ -20,7 +20,7 @@
                 <div class="fixed inset-0 transition-opacity">
                     <div class="absolute inset-0 bg-deep-sky opacity-75"></div>
                 </div>
-
+                {{-- add caas popup --}}
                 <div class="inline-block align-bottom bg-dream-dark border rounded-lg px-4 pt-5 pb-4 text-center overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full sm:p-6" role="dialog" aria-modal="true" aria-labelledby="modal-headline">
                     <button class="fixed right-1 top-1" id="close-popupTambahCaas">
                         <img src="{{ asset('assets/admin/radio-excluded-outline.png') }}" alt="close">
@@ -32,7 +32,7 @@
                             <p>Nama</p>
                             <input
                             type="text"
-                            class="text-black text-center w-48 border-white rounded-md my-1"
+                            class="text-black text-center w-48 border-white rounded-md my-1 font-pixel"
                             name="name"
                             placeholder="Maxwell Julian"
                             required>
@@ -40,7 +40,7 @@
                             <p>NIM</p>
                             <input
                             type="text"
-                            class="text-black text-center w-48 border-white rounded-md mx-1"
+                            class="text-black text-center w-48 border-white rounded-md mx-1 font-pixel"
                             name="nim"
                             placeholder="1102218989"
                             required>
@@ -48,7 +48,7 @@
                             <p>Jurusan</p>
                             <input
                             type="text"
-                            class="text-black text-center w-48 border-white rounded-md mx-1"
+                            class="text-black text-center w-48 border-white rounded-md mx-1 font-pixel"
                             name="major"
                             placeholder="Teknik Elektro"
                             required>
@@ -56,7 +56,7 @@
                             <p>Kelas</p>
                             <input
                             type="text"
-                            class="text-black text-center w-48 border-white rounded-md mx-1"
+                            class="text-black text-center w-48 border-white rounded-md mx-1 font-pixel"
                             name="class"
                             placeholder="EL-45-01"
                             required>
@@ -64,14 +64,14 @@
                             <p>Email</p>
                             <input
                             type="text"
-                            class="text-black text-center w-48 border-white rounded-md mx-1"
+                            class="text-black text-center w-48 border-white rounded-md mx-1 font-pixel"
                             name="email"
                             placeholder="email@gmail.com"
                             required>
                             <br>
                             <p class="pt-2">Tahap</p>
                             <select
-                            class="text-black w-48 border-white rounded-md mt-2 text-center p-1"
+                            class="text-black w-48 border-white rounded-md mt-2 text-center p-1 font-pixel"
                             name="stages_id"
                             required>
                                 <option value="1">Administrasi</option>
@@ -84,14 +84,14 @@
                             </select>
                             <br>
                             <select
-                            class="text-black w-48 border-white rounded-md mt-2 text-center p-1"
+                            class="text-black w-48 border-white rounded-md mt-2 text-center p-1 font-pixel"
                             name="isPass"
                             required>
                                 <option value="1">Lulus</option>
                                 <option value="0">Tidak Lulus</option>
                             </select>
                         </div>
-                        <button type="submit" class="bg-green-700 rounded-lg py-2 px-4 m-4">Masukan Caas</button>
+                        <button type="submit" class="bg-green-700 hover:bg-green-800 shadow-semi-sm shadow-white hover:shadow-in-semi-sm hover:shadow-white rounded-lg py-2 px-4 m-4">Masukan Caas</button>
                     </form>
 
                 </div>
@@ -120,10 +120,15 @@
                   <button type="submit" class="bg-green-700 hover:bg-green-800 rounded-lg py-2 px-4 m-4">Cari</button>
             </form>
         </div>
+        @foreach ($errors->all() as $error)
+
+        <div class="flex justify-around w-full font-arcade text-red-700 text-xl">{{ $error }}</div>
+
+        @endforeach
         <!-- table of caas -->
 
         <table class="shadow-lg bg-white border-collapse font-pixel mt-4 mb-8">
-            {{ $datacaas->links() }}
+            {{ $datacaas->links('vendor.pagination.default') }}
           <thead>
             <tr class="bg-dream-dark text-white text-center">
                 <th class="border border-white">NO</th>

@@ -13,6 +13,11 @@ closePopupTambah.addEventListener("click", () => {
   popupTambah.classList.add("hidden");
   document.body.classList.remove("overflow-hidden");
 });
+const closePopupPilih = document.querySelector("#close-popupTambah");
+closePopupTambah.addEventListener("click", () => {
+  popupTambah.classList.add("hidden");
+  document.body.classList.remove("overflow-hidden");
+});
 
 const popupReset = document.querySelector("#popup-reset");
 resetPopup.addEventListener("click", () => {

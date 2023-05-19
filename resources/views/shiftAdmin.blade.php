@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Explore the Milky Way</title>
-    @vite('public/css/output.css')
+    <link rel="stylesheet" type="text/css" href="{{ asset('/css/output.css') }}">
     <link rel="icon" type="DLOR" href="{{ asset('/assets/homepage/DLOR_2023.svg') }}" />
 </head>
 
@@ -26,6 +26,7 @@
                     <img src="{{ asset('assets/admin/radio-excluded-outline.png') }}" alt="close">
                 </button>
                 <h1 class="font-arcade mt-3 text-white text-4xl">Buat Shift baru</h1>
+                
                 <form class="font-arcade text-white" method="POST" action="\addShift">
                     @csrf
                     <div class="text-lg">
@@ -168,7 +169,7 @@
             <!-- Stats -->
             <div class="flex flex-col font-arcade text-xl w-2/5 text-white">
                 <div class="flex text-white"><h1>TOTAL SHIFT : &nbsp</h1><h1 id="totalShift">{{$countshift}}</h1></div>
-                <div class="flex text-white"><h1>TOTAL KUOTA : &nbsp</h1><h1 id="totalKuota">{{$totalquota}}</h1></div>
+                <div class="flex text-white"><h1>TOTAL KUOTA : &nbsp</h1><h1 id="totalKuota">{{$totalquota-($countshift*1)}}</h1></div>
             </div>
             <!-- buttons -->
             <div class="flex justify-between font-arcade text-sm w-140">
@@ -179,6 +180,7 @@
             </div>
         </div>
     </div>
+    
     <!-- table of caas -->
     <div class="flex justify-center mt-2">
         <table class="shadow-lg bg-white border-collapse font-arcade">
@@ -197,7 +199,7 @@
               <td class="border border-dream-dark px-10">{{$s->shiftname}}</td>
               <td class="border border-dream-dark px-10">{{$s->day}}</td>
               <td class="border border-dream-dark px-10">{{$s->time_start}} - {{$s->time_end}}</td>
-              <td class="text-green-700 border border-dream-dark px-10">{{$s->quota}}</td>
+              <td class="text-green-700 border border-dream-dark px-10">{{$s->quota-1}}</td>
               <td class="border border-dream-dark px-10">
                 <a href="/EditShift/{{$s->id}}">
                     <button class="duration-200 hover:underline active:text-dream-dark">
@@ -216,7 +218,11 @@
             </tr>
             @endforeach
         </table>
+
     </div>
+            <div class="flex justify-center mt-4">
+            {{ $shift->links('vendor.pagination.default') }}
+        </div>
     <script src="{{ asset('/js/popup.js') }}"></script>
 </body>
 </html>
