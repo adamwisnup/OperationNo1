@@ -39,7 +39,7 @@
                                 Waktu&nbsp;&nbsp;&nbsp;: 08.00
                                 </p>
                                 <p class="text-sm md:text-base text-left">
-                                Tempat&nbsp;&nbsp;&nbsp;: Halaman Gedung N
+                                Tempat&nbsp;&nbsp;&nbsp;: Halaman Gedung TULT
                                 </p>
                                 <p class="text-sm md:text-base text-left">
                                 Dresscode&nbsp;&nbsp;: Kemeja bebas
