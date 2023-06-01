@@ -30,17 +30,24 @@
                         @if($Active == 1)
                         @if ($isPass==1)
                         <p class="text-sm md:text-base">Tahap Selanjutnya: FINAL UPGRADING</p>
-                        <p class="text-sm md:text-base">
+                        <br>
+                        <p class="text-sm md:text-base text-left">
                         Hari/Tanggal &emsp;: Sabtu, 3 Juni 2023
                         </p>
-                        <p class="text-sm md:text-base">
+                        <p class="text-sm md:text-base text-left">
                         Waktu &emsp;: 08.00
                         </p>
-                        <p class="text-sm md:text-base">
+                        <p class="text-sm md:text-base text-left">
                         Tempat &emsp;: Halaman Gedung N
                         </p>
-                        <p class="text-sm md:text-base">
+                        <p class="text-sm md:text-base text-left">
                         Dresscode &emsp;: Kemeja bebas</p>
+                        <p class="text-sm md:text-base text-left">
+                            Tata tertib:
+                            <p>- Seluruh caas DIWAJIBKAN membawa bekal makan siang</p>
+                            <p>- Seluruh caas WAJIB menggunakan name tag selama rangkaian acara</p>
+                            <p>- Seluruh caas WAJIB mengikuti seluruh rangkaian acara</p>
+                        </p>
                         @else
                         <p>Maaf ya kamu harus berhenti di tahap {{ $stagesname }}. Jangan menyerah ya, tetaplah semangat, jadikan ini sebagai pembelajaran untuk kedepanya.</p>
                         <br/>
