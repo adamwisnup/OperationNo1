@@ -28,23 +28,23 @@
                     </h1>
                     <div class="font-pixel text-lg mx-8">
                         @if($Active == 1)
-                        @if ($isPass==1)
+                        @if ($isPass == 1)
                         <p class="text-sm md:text-base text-center">Tahap Selanjutnya: FINAL UPGRADING</p>
                         <br>
-                        <div class="mx-10 justify-center">
-                            <p class="text-sm md:text-base text-left">
-                            Hari/Tanggal &emsp;: Sabtu, 3 Juni 2023
+                            <div class="mx-20 justify-center">
+                                <p class="text-sm md:text-base text-left">
+                                Hari/Tanggal &emsp;: Sabtu, 3 Juni 2023
+                                </p>
+                                <p class="text-sm md:text-base text-left">
+                                Waktu &emsp;: 08.00
+                                </p>
+                                <p class="text-sm md:text-base text-left">
+                                Tempat &emsp;: Halaman Gedung N
+                                </p>
+                                <p class="text-sm md:text-base text-left">
+                                Dresscode &emsp;: Kemeja bebas
                             </p>
-                            <p class="text-sm md:text-base text-left">
-                            Waktu &emsp;: 08.00
-                            </p>
-                            <p class="text-sm md:text-base text-left">
-                            Tempat &emsp;: Halaman Gedung N
-                            </p>
-                            <p class="text-sm md:text-base text-left">
-                            Dresscode &emsp;: Kemeja bebas
-                        </p>
-                        </div>
+                            </div>
                         <br>
                         <p class="text-sm md:text-base text-left">
                             Tata tertib:
