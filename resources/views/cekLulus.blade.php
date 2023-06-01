@@ -33,16 +33,16 @@
                         <br>
                             <div class="mx-[20rem] justify-center">
                                 <p class="text-sm md:text-base text-left">
-                                Hari/Tanggal : Sabtu, 3 Juni 2023
+                                Hari/Tanggal&nbsp;&nbsp;: Sabtu, 3 Juni 2023
                                 </p>
                                 <p class="text-sm md:text-base text-left">
-                                Waktu : 08.00
+                                Waktu&nbsp;&nbsp;&nbsp;: 08.00
                                 </p>
                                 <p class="text-sm md:text-base text-left">
-                                Tempat : Halaman Gedung N
+                                Tempat&nbsp;&nbsp;&nbsp;: Halaman Gedung N
                                 </p>
                                 <p class="text-sm md:text-base text-left">
-                                Dresscode : Kemeja bebas
+                                Dresscode&nbsp;&nbsp;: Kemeja bebas
                             </p>
                             </div>
                         <br>
