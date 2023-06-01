@@ -48,6 +48,7 @@
                         <br>
                         <p class="text-sm md:text-base text-left">
                             Tata tertib:
+                            <p>- Seluruh caas DIWAJIBKAN untuk sarapan terlebih dahulu</p>
                             <p>- Seluruh caas DIWAJIBKAN membawa bekal makan siang</p>
                             <p>- Seluruh caas WAJIB menggunakan name tag selama rangkaian acara</p>
                             <p>- Seluruh caas WAJIB mengikuti seluruh rangkaian acara</p>
