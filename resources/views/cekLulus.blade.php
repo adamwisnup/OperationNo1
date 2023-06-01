@@ -31,18 +31,18 @@
                         @if ($isPass == 1)
                         <p class="text-sm md:text-base text-center">Tahap Selanjutnya: FINAL UPGRADING</p>
                         <br>
-                            <div class="mx-20 justify-center">
+                            <div class="mx-[20rem] justify-center">
                                 <p class="text-sm md:text-base text-left">
-                                Hari/Tanggal &emsp;: Sabtu, 3 Juni 2023
+                                Hari/Tanggal : Sabtu, 3 Juni 2023
                                 </p>
                                 <p class="text-sm md:text-base text-left">
-                                Waktu &emsp;: 08.00
+                                Waktu : 08.00
                                 </p>
                                 <p class="text-sm md:text-base text-left">
-                                Tempat &emsp;: Halaman Gedung N
+                                Tempat : Halaman Gedung N
                                 </p>
                                 <p class="text-sm md:text-base text-left">
-                                Dresscode &emsp;: Kemeja bebas
+                                Dresscode : Kemeja bebas
                             </p>
                             </div>
                         <br>
