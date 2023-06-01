@@ -31,7 +31,7 @@
                         @if ($isPass==1)
                         <p class="text-sm md:text-base text-center">Tahap Selanjutnya: FINAL UPGRADING</p>
                         <br>
-                        <div class="mx-10">
+                        <div class="mx-10 justify-center">
                             <p class="text-sm md:text-base text-left">
                             Hari/Tanggal &emsp;: Sabtu, 3 Juni 2023
                             </p>
@@ -42,8 +42,10 @@
                             Tempat &emsp;: Halaman Gedung N
                             </p>
                             <p class="text-sm md:text-base text-left">
-                        Dresscode &emsp;: Kemeja bebas</p>
+                            Dresscode &emsp;: Kemeja bebas
+                        </p>
                         </div>
+                        <br>
                         <p class="text-sm md:text-base text-left">
                             Tata tertib:
                             <p>- Seluruh caas DIWAJIBKAN membawa bekal makan siang</p>
