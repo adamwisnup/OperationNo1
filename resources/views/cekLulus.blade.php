@@ -45,7 +45,6 @@
                                 Dresscode&nbsp;&nbsp;: Kemeja bebas
                             </p>
                             </div>
-                        <br>
                         <p class="text-sm md:text-base text-left">
                             Tata tertib:
                             <p>- Seluruh caas DIWAJIBKAN untuk sarapan terlebih dahulu</p>
