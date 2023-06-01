@@ -29,19 +29,18 @@
                     <div class="font-pixel text-lg text-center mx-8">
                         @if($Active == 1)
                         @if ($isPass==1)
-                        <p class="text-sm md:text-base">Tahap Selanjutnya: UPGRADING</p>
-                        <br>
-                        <p class="text-sm md:text-base">Silakan mengakses link ini</p>
-                        <a href="https://bit.ly/3WiAxnf">
-                          <button class="w-24 h-10 mt-4 text-xs bg-[#233B4E] text-center text-white font-arcade shadow-[inset_0px_0px_8px_2px_#FFFFFF] rounded-[8px] duration-200 hover:shadow-[0px_0px_8px_2px_#F0A164] hover:bg-[#233B4E] active:shadow-[inset_0px_0px_8px_2px_#ffd0a9]"><h1>Penugasan Upgrading</h1></button>
-                      </a>
-                        {{-- <p class="text-sm md:text-base">Selamat kamu lulus tahap {{ $stagesname }}</p>
-                        <p class="text-sm md:text-base">Informasi selanjutnya akan disampaikan melalui OA Line DLOR 2023</p> --}}
-                        {{-- <p class="text-sm md:text-base">Silahkan Join Grup dengan mengklik atau memindai QR di bawah</p>
-
-                            <a href="https://line.me/ti/g/tuxprZuMP0" target="_blank" class="flex justify-center mt-2">
-                                <img src="assets/S__7856149.jpg" class="h-40 rounded-xl m-2" alt="QR">
-                            </a> --}}
+                        <p class="text-sm md:text-base">Tahap Selanjutnya: FINAL UPGRADING</p>
+                        <p class="text-sm md:text-base">
+                        Hari/Tanggal &emsp;: Sabtu, 3 Juni 2023
+                        </p>
+                        <p class="text-sm md:text-base">
+                        Waktu &emsp;: 08.00
+                        </p>
+                        <p class="text-sm md:text-base">
+                        Tempat &emsp;: Halaman Gedung N
+                        </p>
+                        <p class="text-sm md:text-base">
+                        Dresscode &emsp;: Kemeja bebas</p>
                         @else
                         <p>Maaf ya kamu harus berhenti di tahap {{ $stagesname }}. Jangan menyerah ya, tetaplah semangat, jadikan ini sebagai pembelajaran untuk kedepanya.</p>
                         <br/>
