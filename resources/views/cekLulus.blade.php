@@ -26,15 +26,32 @@
                             Tahap Sedang Berlangsung!!!
                         @endif
                     </h1>
-                    <div class="font-pixel text-lg text-center mx-8">
+                    <div class="font-pixel text-lg mx-8">
                         @if($Active == 1)
-                        @if ($isPass==1)
-                        <p class="text-sm md:text-base">Selamat kamu lulus tahap {{ $stagesname }}</p>
-                        <p class="text-sm md:text-base">Silahkan Join Grup dengan mengklik atau memindai QR di bawah</p>
-
-                            <a href="https://line.me/ti/g/tuxprZuMP0" target="_blank" class="flex justify-center mt-2">
-                                <img src="assets/S__7856149.jpg" class="h-40 rounded-xl m-2" alt="QR">
-                            </a>
+                        @if ($isPass == 1)
+                        <p class="text-sm md:text-base text-center">Tahap Selanjutnya: FINAL UPGRADING</p>
+                        <br>
+                            <div class="mx-[20rem] justify-center">
+                                <p class="text-sm md:text-base text-left">
+                                Hari/Tanggal&nbsp;&nbsp;: Sabtu, 3 Juni 2023
+                                </p>
+                                <p class="text-sm md:text-base text-left">
+                                Waktu&nbsp;&nbsp;&nbsp;: 08.00
+                                </p>
+                                <p class="text-sm md:text-base text-left">
+                                Tempat&nbsp;&nbsp;&nbsp;: Halaman Gedung TULT
+                                </p>
+                                <p class="text-sm md:text-base text-left">
+                                Dresscode&nbsp;&nbsp;: Kemeja bebas
+                            </p>
+                            </div>
+                        <p class="text-sm md:text-base text-left">
+                            Tata tertib:
+                            <p>- Seluruh caas DIWAJIBKAN untuk sarapan terlebih dahulu</p>
+                            <p>- Seluruh caas DIWAJIBKAN membawa bekal makan siang</p>
+                            <p>- Seluruh caas WAJIB menggunakan name tag selama rangkaian acara</p>
+                            <p>- Seluruh caas WAJIB mengikuti seluruh rangkaian acara</p>
+                        </p>
                         @else
                         <p>Maaf ya kamu harus berhenti di tahap {{ $stagesname }}. Jangan menyerah ya, tetaplah semangat, jadikan ini sebagai pembelajaran untuk kedepanya.</p>
                         <br/>
